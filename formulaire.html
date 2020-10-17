@@ -6,14 +6,25 @@
 </head>
 <body>
     <!-- FORMULAIRE D INSCRIPTION AVEC UN REQUIRED SUR CHAQUE CHAMPS-->
-    <FORM METHOD="GET" ACTION="http://localhost:8080/WebApplication1/MyServlet">
+    <FORM METHOD="GET" ACTION="">
     <h1>FORMULAIRE</h1>
-    <h2>Information Personnel</h2>
-    <p>Nom : <input type="text" id="Surname" name="Surname" required > </p>
+
+    <h2>Informations Personnelles</h2>
+
+    <p>Nom : <input type="text" id="surname" name="Surname" required > </p>
     <p>Prénom : <input type="text" id="name" name="name" required></p>
     <p>Mail : <input type="email" id="email" name="email" required></p>
     <p>Mot de passe : <input type="password" id="pass" name="password" minlength="8" required> * 8 caractères minimum</p>
     <p>Confirmation du mot de passe : <input type="password" id="pass_2" name="verify_password" onchange="change()" minlength="8" required> <span id="affiche" style="color:#990000;font-weight:bold;"></span> </p> <!-- Vérification de la correspondance des MDP à l'aide d'un scrypte JS -->
+    
+    <h2>Informations Logement</h2>
+
+    <p>Nom du Propriétaire : <input type="text" id="surname_pro" name="Surname" required > </p>
+    <p>Prénom du Propriétaire : <input type="text" id="name_pro" name="name" required></p>
+    <p>Adresse : <input type="text" id="address" ></p>
+    <p>Code Postal : <input pattern="^(([0-8][0-9])|(9[0-5]))[0-9]{3}$" id="postal_code" ></p>
+    <p>Téléphone : <input type="text" id="phone"</p>
+    <p>Consomation électrique : <input type="number" min="0"> en kilowatt </p>
     <p><input disabled type="submit" id="btn_signin" value="Sign in" ></p> <!-- Bouton désactivé tant que la méthode change ne soit pas correcte-->
     </FORM>
 </body> 
