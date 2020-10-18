@@ -1,38 +1,60 @@
 body{
-    background-color: gainsboro;
+    background-color: rgb(235, 235, 235);
     width: 100%;
     justify-content: center;
     flex-direction: column;
     margin: 0;
+    margin-top: 30px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 
 }
 header{
     background-position:  center;
 }
+nav{
+    position: fixed;
+    top: 0;
+    right: 0;
+}
+nav button{
+    border: rgb(118, 207, 219);
+	border-radius: 5px;
+	background-color: rgb(125, 209, 220);
+	margin: 5px;
+	padding: 10px;
+	color: white;
+	cursor: pointer;
+}
+nav button:hover{
+    background-color: rgba(55,158,230,0.5);
+    border: solid 1px #4384b3;
+}
+
 #banner{
-    margin-top: 15px;
+    position: fixed;
+    top: 20px;
     height: 200px;
-    border-radius: 5px;
+    width: auto;
     background: url('../Assets/images/DESIGN4GREEN_bandeau_email\ Registrations.jpg') no-repeat 100% center;
     position: relative;
-    margin-bottom: 25px;
+
 }
 main{
 
     margin: 20px;
+    margin-top: 30px;
 
 }
 .affichage{
-    background-color: rgba(255, 255, 255, 0.452);
     text-align: center;
-    margin: 10px 0 10px 0;
-    padding: 12px 12px 12px 12px;
+    background-color: rgba(255, 255, 255, 0.521);
     border: 1px solid rgb(102, 99, 99);
     border-radius: 3px;
+    transform: translate(50%, 50%);
+    margin: 0;
+    padding: 12px 12px 12px 12px;
 
     width: 50%;
-    position: center;
 }
 
 .affichage img{
