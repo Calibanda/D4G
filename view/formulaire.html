@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Formulaire</title>
+    <script type="text/javascript" src="../js/verifyMdp.js"></script>
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <link rel="stylesheet" type="text/css" href="./css/formulaire.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="./index.html">Accueil</a> | 
+            <a href="./connexion.html">Se connecter</a>
+        </nav>
+    </header>
+    <!-- FORMULAIRE D INSCRIPTION AVEC UN REQUIRED SUR CHAQUE CHAMPS-->
+    <div id="form">
+        <FORM METHOD="GET" ACTION="" >
+            <h2>INSCRIPTION</h2>
+    
+            <h3>Informations Personnelles</h3>
+            <div class="blocinfo">
+                <p>Nom : <input type="text" id="surname" name="surname" required > </p>
+                <p>Prénom : <input type="text" id="name" name="name" required></p>
+                <p>Mail : <input type="email" id="email" name="email" required></p>
+                <p>Mot de passe : <input type="password" id="pass" name="password" minlength="8" required> * 8 caractères minimum</p>
+                <p>Confirmation du mot de passe : <input type="password" id="pass_2" name="verify_password" onchange="change()" minlength="8" required> <span id="affiche" style="color:#990000;font-weight:bold;"></span> </p> <!-- Vérification de la correspondance des MDP à l'aide d'un scrypte JS -->
+            </div>
+
+            <h3>Informations Logement</h3>
+            <div class="blocinfo">
+                <p>Nom du Propriétaire : <input type="text" id="surname_prop" name="surname_prop" required > </p>
+                <p>Prénom du Propriétaire : <input type="text" id="name_prop" name="name_prop" required></p>
+                <p>Adresse : <input name="address" type="text" id="address" ></p>
+                <p>Code Postal : <input name="zip_code" pattern="^(([0-8][0-9])|(9[0-5]))[0-9]{3}$" id="postal_code" ></p>
+                <p>Téléphone : <input name ="phone" type="text" id="phone"></p>
+                <p>Consomation électrique : <input name ="conso_elec" type="number" min="0"> en kilowatt </p>
+            </div>
+
+            <button type="submit"> S'enregistrer</button>
+
+        </FORM>
+    </div>
+    <footer>
+        <p>&copy; Crew'stibat</p>
+    </footer>
+</body> 
+</html>
