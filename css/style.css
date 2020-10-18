@@ -13,14 +13,24 @@ header{
 }
 nav{
     position: fixed;
-    top: 0;
+    top: 5px;
     right: 0;
+}
+nav a {
+    text-decoration: none;
+    color: rgb(74, 123, 180);
+    margin: 5px;
+}
+nav a:hover{
+    text-decoration: none;
+    color: rgb(125, 209, 220);
+    text-align: center;
 }
 nav button{
     border: rgb(118, 207, 219);
 	border-radius: 5px;
 	background-color: rgb(125, 209, 220);
-	margin: 5px;
+	margin: 0;
 	padding: 10px;
 	color: white;
 	cursor: pointer;
@@ -34,9 +44,10 @@ nav button:hover{
     position: fixed;
     top: 20px;
     height: 200px;
-    width: auto;
+    max-width: 100%;
     background: url('../Assets/images/DESIGN4GREEN_bandeau_email\ Registrations.jpg') no-repeat 100% center;
     position: relative;
+    background-size: cover;
 
 }
 main{

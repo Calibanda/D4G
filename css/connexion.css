@@ -1,0 +1,44 @@
+form {
+    /* Uniquement centrer le formulaire sur la page */
+    margin: 0 auto;
+    width: 400px;
+    transform: translate(0%, 50%);
+    /* Encadré pour voir les limites du formulaire */
+    padding: 1em;
+    border: 1px solid #CCC;
+    border-radius: 1em;
+  }
+  
+  form div + div {
+    margin-top: 1em;
+  }
+  
+  label {
+    /* Pour être sûrs que toutes les étiquettes ont même taille et sont correctement alignées */
+    display: inline-block;
+    width: 150px;
+    text-align: right;
+  }
+  
+  button {
+    
+      margin-left: 100px;
+      margin-top: 20px;
+      border: rgb(118, 207, 219);
+      border-radius: 5px;
+      background-color: rgb(125, 209, 220);
+      padding: 10px;
+      color: white;
+      cursor: pointer;
+  }
+  button:hover{
+      margin-left: 100px;
+      margin-top: 20px;
+      border: #4384b3;
+      border-radius: 5px;
+      background-color: rgba(55,158,230,0.5);
+      padding: 10px;
+      color: white;
+      cursor: pointer;
+  }
+  
