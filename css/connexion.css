@@ -20,7 +20,7 @@ form {
     text-align: right;
   }
   
-  button {
+  .buttonCo, button {
     
       margin-left: 100px;
       margin-top: 20px;
@@ -31,7 +31,7 @@ form {
       color: white;
       cursor: pointer;
   }
-  button:hover{
+  .buttonCo:hover, button:hover{
       margin-left: 100px;
       margin-top: 20px;
       border: #4384b3;
