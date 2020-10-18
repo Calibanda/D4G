@@ -3,6 +3,7 @@ var express = require('express');
 
 //import body-parser
 var bodyParser = require('body-parser');
+const { response } = require('express');
 
 //store the express in a variable 
 var app = express();
@@ -23,16 +24,22 @@ client.connect(function (err) {
         //route the GET request to the specified path, "/user". 
         //This sends the user information to the path  
         app.post('/user', function(req, res){
-            response = {
-                first_name : req.body.first_name,
-                last_name : req.body.last_name,
-                gender: req.body.gender
+            var response = {
+                Foyer : req.body.foyer
                 };
             
+            var coll_logements = client.db("Logements").collection("logements");
+            coll_logements.findOne(response, function(err, result){
+                if (err) {
+                    throw err;
+                }
+                console.log(result);
+            });
+
             //this line is optional and will print the response on the command prompt
             //It's useful so that we know what infomration is being transferred 
             //using the server
-            console.log(response);
+            //console.log(response);
             
             //convert the response in JSON format
             res.end(JSON.stringify(response));
