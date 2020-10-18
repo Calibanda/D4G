@@ -8,11 +8,14 @@ body{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 
 }
+
+/* ############### HEADER ##############*/
+
 header{
     background-position:  center;
 }
 nav{
-    position: fixed;
+    position: absolute;
     top: 5px;
     right: 0;
 }
@@ -27,7 +30,7 @@ nav a:hover{
     text-align: center;
 }
 nav button{
-    border: rgb(118, 207, 219);
+    border: solid 1px  rgb(118, 207, 219);
 	border-radius: 5px;
 	background-color: rgb(125, 209, 220);
 	margin: 0;
@@ -39,7 +42,6 @@ nav button:hover{
     background-color: rgba(55,158,230,0.5);
     border: solid 1px #4384b3;
 }
-
 #banner{
     position: fixed;
     top: 20px;
@@ -50,12 +52,27 @@ nav button:hover{
     background-size: cover;
 
 }
+
+/* ################ MAIN #################*/
+
 main{
 
     margin: 20px;
     margin-top: 30px;
+    padding-bottom:75px;
 
 }
+/*---- Page Accueil ----*/
+.apropos{
+    width: 80%;
+    margin-top: 35px;
+    margin: auto;
+}
+.apropos h2{
+    text-align: center;
+}
+
+/*---- Page Affichage ----*/
 .affichage{
     text-align: center;
     background-color: rgba(255, 255, 255, 0.521);
@@ -67,19 +84,22 @@ main{
 
     width: 50%;
 }
-
 .affichage img{
     width: 200px;
 }
 
+/*#################### FOOTER #########################*/
+
 footer{
     position: fixed;
     bottom: 0;
-	background-color: rgba(125, 209, 220, 0.7);
+    height: 75px;
+    max-height: 75px;
+	background-color: rgb(125, 209, 220);
 	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
 	box-sizing: border-box;
 	border-top: 1px solid #949494;
-	width: 100%;
+    width: 100%;
 	text-align: left;
 	font: normal 16px sans-serif;
 	padding: 15px 50px;
