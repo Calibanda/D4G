@@ -45,7 +45,7 @@ nav button:hover{
     top: 20px;
     height: 200px;
     max-width: 100%;
-    background: url('../Assets/images/DESIGN4GREEN_bandeau_email\ Registrations.jpg') no-repeat 100% center;
+    background: url('../assets/images/DESIGN4GREEN_bandeau_email\ Registrations.jpg') no-repeat 100% center;
     position: relative;
     background-size: cover;
 
