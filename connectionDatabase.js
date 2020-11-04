@@ -10,6 +10,8 @@ var path = require("path");
 //store the express in a variable 
 var app = express();
 
+var cors = require('cors')
+
 app.use(cors({
     origin: '*'
 }));
