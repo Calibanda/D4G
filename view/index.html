@@ -7,48 +7,93 @@
 		
         <link rel="icon" type="image/jpg" href="./assets/images/DESIGN4GREEN_logo_carre_HD.jpg" />
         <link rel="stylesheet" type="text/css" href="./css/style.css">
-        <link rel="stylesheet" type="text/css" href="./css/formulaire.css">
+        <script type="text/javascript" src="./js/index.js"></script>
+
         
     </head>
     <body>
-<<<<<<< HEAD
         <header>
-            <div id="banner"></div>
-            <nav>
-
-                
+            <nav class="nav">
+                <ul>
+                    <img id="img_banner" src="./assets/images/inr.png">
+                    <li><a href="#presentation">Présentation</a></li>
+                    <li><a href="#formulaire">Données</a></li>
+                    <li><a href="#resume">Résumé</a></li>
+                    
+                </ul>
             </nav>
         </header>
-        <main>
-            <div class="formulaire">
-            <form action="" method="get" class="">
-                <div class="form">
-                    <label for="CodePostal">Code Postal: </label>
-                    <input type="text" name="CodePostal" id="CodePostal" pattern="[0-9]{5}" required>
-                </div>
-                <div class="form">
 
-                </div>
-                <div class="form">
-                    <input class="rechercher" type="submit" value="Rechercher">
-                </div>
-            </form>
+        <main>
+            <div id="presentation">
+                <h1>Présentation</h1>
+                <p>
+                    L’indice de fragilité numérique des territoires a été produit dans le cadre de l’IncubO du 
+                    SGAR Occitanie avec le concours de l’ANSA en partenariat avec la Mednum, grâce au 
+                    soutien du Fond de transformation pour l’action publique. 
+                </p>
+                <p>
+                    Ce kit de mise en place de l’indice de fragilité numérique est à destination des acteurs 
+                    publics, collectivités, opérateurs de service publics et services de l’Etat qui souhaitent se 
+                    saisir de cet indice comme d’un outil d’aide à la décision et de mobilisation des acteurs de 
+                    l’inclusion numérique sur leur territoire. Quelques collectivités pionnières l’ont déjà mis en 
+                    œuvre et leurs retours d’expérience ont participé à la conception de ce kit. 
+                </p>
+                <p>
+                    Il comprend deux documents:
+                    <ul>
+                        <li>La méthodologie de l’indice de fragilité numérique en un clin d’œil pour mettre en 
+                            place l’indice de fragilité numérique pas à pas. </li>
+                        <li>La matrice Excel mobilisée pour assurer les calculs 
+                            Le travail est sous licence Creative Commons cc-by-sa. La bonne lecture des CGU est donc 
+                            importante. L’utilisation de l’indice de fragilité numérique vaut acceptation des CGU. </li>
+                    </ul>
+                </p>
             </div>
-=======
-        <nav>
-            <ul>
-                <img id="img_banner" src="./assets/images/inr.png">
-                <li><a href="#">Présentation</a></li>
-                <li><a href="#">Données</a></li>
-                <li><a href="#">Résumé</a></li>
-            </ul>
-        </nav>
 
-        <main>
->>>>>>> 4b095c545b508a6f31033f3ea40dd37444a70af4
+            <div id="formulaire">
+                <h1>Recherche</h1>
+
+                <form action="" method="get" class="">
+                    <div class="">
+                        <label for="CodePostal">Code Postal: </label>
+                        <input type="text" name="CodePostal" id="CodePostal" pattern="[0-9]{5}" required>
+                    </div>
+                    <div class="">
+                            <label for="CodePostal">Département: </label>
+                            <select name="pets" id="Departement">
+                                <option value="">--Please choose an option--</option>
+                            </select>
+                    </div>
+                    <div class="">
+                        <input class="rechercher" type="submit" value="Rechercher">
+                    </div>
+                </form>
+            </div>
+
+            <div id="donnees">
+                <h1>Données</h1>
+                <div class="communes">
+                    <h2></h2>
+                </div>
+                <div class="departement">
+
+                </div>
+                <div class="region">
+
+                </div>
+            </div>
+            
+            <div id="resume">
+                <h1>Résumé</h1>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reiciendis impedit facere dolorem amet iure. Quaerat quod vitae enim vero quos totam eveniet cupiditate tenetur suscipit. Sit ipsa iste incidunt? Accusamus ipsa cum, perferendis delectus consequatur labore. Quod, quisquam quas facere cum quis blanditiis reprehenderit aut obcaecati perspiciatis quae corrupti omnis, veritatis nemo aliquam cupiditate commodi a qui quidem laudantium harum non quam dolore. Tenetur culpa nesciunt nihil numquam sunt, laboriosam, aperiam impedit harum quibusdam consequuntur commodi fugiat modi incidunt, dolores nemo possimus totam molestias. Ut molestias, repudiandae quae a natus explicabo illum voluptatibus hic et, eveniet animi, suscipit deserunt quis.</p>
+            </div>   
+
         </main>
         <footer>
-				<p>&copy; Crew'stibat</p>
+                <p>&copy; Crew'stibat</p>
+                <p><a href="https://google.fr">RGPD</a></p>
+                <p><a href="https://google.fr">CGU</a></p>
         </footer>
     </body>
 </html>
