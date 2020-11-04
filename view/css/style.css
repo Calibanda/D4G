@@ -1,8 +1,5 @@
 body{
     background-color: rgb(235, 235, 235);
-<<<<<<< HEAD
-}
-=======
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     margin: 0;
     padding: 0;
@@ -15,7 +12,6 @@ body{
     position: fixed;
     width: 100%;
 }
->>>>>>> 33623fc3212a49e64d4f014b6f4ce2aea90bcdb5
 nav ul{
     display: flex;
     text-align: right;

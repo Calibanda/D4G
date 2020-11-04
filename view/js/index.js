@@ -9,9 +9,142 @@ fetch('http://vps-2377b176.vps.ovh.net:8888/departements_cities.json',myInit)
     .then(function (response) {
         return response.json()
     }).then(function (data) {
-        var obj =JSON.parse(data);
-        console.log(obj.name);
+        console.log(data);        
     })
+
+window.onload = function(){
+   generate_data();
+};
+
+function generate_data(){
+    var div_tableau = document.getElementById("communes");
+    var tbl = document.createElement("table");
+    var firstLine = document.createElement("tr");
+    
+    var col1 = document.createElement("th");
+    var cellText = document.createTextNode("");
+    col1.appendChild(cellText);
+    firstLine.appendChild(col1);
+
+    var col6 = document.createElement("th");
+    var cellText = document.createTextNode("score global");
+    col6.appendChild(cellText);
+    firstLine.appendChild(col6);
+
+    var col2 = document.createElement("th");
+    var cellText = document.createTextNode("Accès aux interfaces numérique");
+    col2.appendChild(cellText);
+    firstLine.appendChild(col2);
+
+    var col3 = document.createElement("th");
+    var cellText = document.createTextNode("Accès a l'information");
+    col3.appendChild(cellText);
+    firstLine.appendChild(col3);
+
+    var col4 = document.createElement("th");
+    var cellText = document.createTextNode("Compétences administrative");
+    col4.appendChild(cellText);
+    firstLine.appendChild(col4);
+    
+    var col5 = document.createElement("th");
+    var cellText = document.createTextNode("compétences numérique / scolaire");
+    col5.appendChild(cellText);
+    firstLine.appendChild(col5);
+
+
+
+    tbl.appendChild(firstLine);
+    res.forEach(element => {
+        var Line = document.createElement("tr");
+        var col1 = document.createElement("td");
+        var cellText = document.createTextNode(element["Nom Com"]);
+        col1.appendChild(cellText);
+        Line.appendChild(col1);
+        var col1 = document.createElement("td");
+        var cellText = document.createTextNode(element["SCORE GLOBAL epci 1"]);
+        col1.appendChild(cellText);
+        Line.appendChild(col1);
+        var col1 = document.createElement("td");
+        var cellText = document.createTextNode(element["ACCÈS AUX INTERFACES NUMERIQUES epci 1"]);
+        col1.appendChild(cellText);
+        Line.appendChild(col1);
+        var col1 = document.createElement("td");
+        var cellText = document.createTextNode(element["ACCES A L'INFORMATION epci 1"]);
+        col1.appendChild(cellText);
+        Line.appendChild(col1);
+        var col1 = document.createElement("td");
+        var cellText = document.createTextNode(element["COMPETENCES ADMINISTATIVES epci 1"]);
+        col1.appendChild(cellText);
+        Line.appendChild(col1);
+        var col1 = document.createElement("td");
+        var cellText = document.createTextNode(element["COMPÉTENCES NUMÉRIQUES / SCOLAIRES epci 1"]);
+        col1.appendChild(cellText);
+        Line.appendChild(col1);
+        tbl.appendChild(Line);
+
+        var Line = document.createElement("tr");
+        var col1 = document.createElement("td");
+        var cellText = document.createTextNode(element["Libdep"]);
+        col1.appendChild(cellText);
+        Line.appendChild(col1);
+        var col1 = document.createElement("td");
+        var cellText = document.createTextNode(element["SCORE GLOBAL departement 1"]);
+        col1.appendChild(cellText);
+        Line.appendChild(col1);
+        var col1 = document.createElement("td");
+        var cellText = document.createTextNode(element["ACCÈS AUX INTERFACES NUMERIQUES departement 1"]);
+        col1.appendChild(cellText);
+        Line.appendChild(col1);
+        var col1 = document.createElement("td");
+        var cellText = document.createTextNode(element["ACCES A L'INFORMATION departement 1"]);
+        col1.appendChild(cellText);
+        Line.appendChild(col1);
+        var col1 = document.createElement("td");
+        var cellText = document.createTextNode(element["COMPETENCES ADMINISTATIVES departement 1"]);
+        col1.appendChild(cellText);
+        Line.appendChild(col1);
+        var col1 = document.createElement("td");
+        var cellText = document.createTextNode(element["COMPÉTENCES NUMÉRIQUES / SCOLAIRES departement 1"]);
+        col1.appendChild(cellText);
+        Line.appendChild(col1);
+        tbl.appendChild(Line);
+
+        var Line = document.createElement("tr");
+        var col1 = document.createElement("td");
+        var cellText = document.createTextNode(element["Libreg"]);
+        col1.appendChild(cellText);
+        Line.appendChild(col1);
+        var col1 = document.createElement("td");
+        var cellText = document.createTextNode(element["SCORE GLOBAL region *"]);
+        col1.appendChild(cellText);
+        Line.appendChild(col1);
+        var col1 = document.createElement("td");
+        var cellText = document.createTextNode(element["ACCÈS AUX INTERFACES NUMERIQUES region 1"]);
+        col1.appendChild(cellText);
+        Line.appendChild(col1);
+        var col1 = document.createElement("td");
+        var cellText = document.createTextNode(element["ACCES A L'INFORMATION region 1"]);
+        col1.appendChild(cellText);
+        Line.appendChild(col1);
+        var col1 = document.createElement("td");
+        var cellText = document.createTextNode(element["COMPETENCES ADMINISTATIVES region 1"]);
+        col1.appendChild(cellText);
+        Line.appendChild(col1);
+        var col1 = document.createElement("td");
+        var cellText = document.createTextNode(element["COMPÉTENCES NUMÉRIQUES / SCOLAIRES region 1"]);
+        col1.appendChild(cellText);
+        Line.appendChild(col1);
+        tbl.appendChild(Line);
+    });
+    div_tableau.appendChild(tbl);
+    tbl.setAttribute("border", "2");
+
+
+
+
+}
+
+
 
 var res =[
     {
