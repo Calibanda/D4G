@@ -31,8 +31,8 @@ client.connect(function (err) {
             Foyer : req.body.foyer
             };
         
-        var coll_logements = client.db("accesInterfacesNumeriques").collection("donneesCommunes");
-        coll_logements.findOne(response, function(err, result){
+        var coll_donnees_communes = client.db("accesInterfacesNumeriques").collection("donneesCommunes");
+        coll_donnees_communes.findOne(response, function(err, result){
             if (err) {
                 throw err;
             }
@@ -46,6 +46,37 @@ client.connect(function (err) {
             console.log(result);
         });
     });
+
+    /// Back-end: Node.js + Mongoose (MongoDB)
+    app.get('/api/seach/:postal_code', (req, res) => {
+        var response = {
+            CodePostal : req.params.postal_code
+            };
+
+        var coll_donnees_communes = client.db("accesInterfacesNumeriques").collection("donneesCommunes");
+        coll_donnees_communes.findMany(response, function(err, result){
+            if (err) {
+                throw err;
+            }
+
+            if (result) {
+                res.end("/a");
+            }
+            else {
+                res.end("Non trouvé");
+            }
+            console.log(result);
+        })
+        // Todo.deleteOne({ _id: req.params.id })
+        .then(() => {
+            res.json({ success: true });
+        })
+        .catch(err => {
+            res.status.json({ err: err });
+        });
+    });
+
+
 
     /*app.post('/connexiondb', function(req, res){
 
