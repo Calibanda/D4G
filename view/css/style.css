@@ -1,92 +1,50 @@
 body{
     background-color: rgb(235, 235, 235);
-    width: 100%;
-    justify-content: center;
-    flex-direction: column;
-    margin: 0;
-    margin-top: 30px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
 
+}
+
+nav ul{
+    display: flex;
+    padding: 0px;
+    margin: 0px;
+    list-style-type: none;
+    background-color: #373f40;
+    justify-content: flex-end;
+}
+nav li{
+    display: inline-block;
+    width: 100px;
+    height: 40px;
+    margin: 0px;
+    padding: 0px;
+    border-left: 1px solid #CCCCCC;
+    text-align: center;
+    line-height: 40px;
+}
+nav li :hover
+{
+    background-color: #3388BB;
+}
+nav li a {
+    display: block;
+    text-decoration: none;
+    color: white;
+}
+nav #img_banner{
+    position: absolute;
+    left: 50px;
+    background-color: white;
+    width: 10%;
+    float: left;
 }
 
 /* ############### HEADER ##############*/
 
-header{
-    background-position:  center;
-}
-nav{
-    position: absolute;
-    top: 5px;
-    right: 0;
-}
-nav a {
-    text-decoration: none;
-    color: rgb(74, 123, 180);
-    margin: 5px;
-}
-nav a:hover{
-    text-decoration: none;
-    color: rgb(125, 209, 220);
-    text-align: center;
-}
-nav button{
-    border: solid 1px  rgb(118, 207, 219);
-	border-radius: 5px;
-	background-color: rgb(125, 209, 220);
-	margin: 0;
-	padding: 10px;
-	color: white;
-	cursor: pointer;
-}
-nav button:hover{
-    background-color: rgba(55,158,230,0.5);
-    border: solid 1px #4384b3;
-}
-#banner{
-    position: fixed;
-    top: 20px;
-    height: 200px;
-    max-width: 100%;
-    background: url('../assets/images/DESIGN4GREEN_bandeau_email\ Registrations.jpg') no-repeat 100% center;
-    position: relative;
-    background-size: cover;
 
-}
 
 /* ################ MAIN #################*/
 
-main{
 
-    margin: 20px;
-    margin-top: 30px;
-    padding-bottom:75px;
-
-}
-/*---- Page Accueil ----*/
-.apropos{
-    width: 80%;
-    margin-top: 35px;
-    margin: auto;
-}
-.apropos h2{
-    text-align: center;
-}
-
-/*---- Page Affichage ----*/
-.affichage{
-    text-align: center;
-    background-color: rgba(255, 255, 255, 0.521);
-    border: 1px solid rgb(102, 99, 99);
-    border-radius: 3px;
-    transform: translate(50%, 50%);
-    margin: 0;
-    padding: 12px 12px 12px 12px;
-
-    width: 50%;
-}
-.affichage img{
-    width: 200px;
-}
 
 /*#################### FOOTER #########################*/
 
