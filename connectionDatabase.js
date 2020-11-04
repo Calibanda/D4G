@@ -56,17 +56,19 @@ client.connect(function (err) {
     /// Back-end: Node.js + Mongoose (MongoDB)
     app.get('/api/seach/:postal_code', (req, res) => {
         var response = {
-            CodePostal : req.params.postal_code
+            // "Code postal" : req.params.postal_code
+            "Code postal" : "13420"
             };
 
         var coll_donnees_communes = client.db("accesInterfacesNumeriques").collection("donneesCommunes");
-        coll_donnees_communes.findMany(response, function(err, result){
+        coll_donnees_communes.find(response, function(err, result){
             if (err) {
                 throw err;
             }
 
             if (result) {
-                res.end("/a");
+                // res.end("/a");
+                console.log(result);
             }
             else {
                 res.end("Non trouvé");
