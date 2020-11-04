@@ -11,7 +11,6 @@ var path = require("path");
 var app = express();
 
 const MongoClient = require('mongodb').MongoClient;
-//const uri = "mongodb+srv://LOGEMENTSADM:LOGEMENTSADM@icv-in-practice.fer4c.mongodb.net/Logements?retryWrites=true&w=majority";
 const uri = "mongodb+srv://AINADMIN:AINADMIN@icv-in-practice.fer4c.mongodb.net/<dbname>?retryWrites=true&w=majority";
 const client = new MongoClient(uri, { useNewUrlParser: true,  useUnifiedTopology: true});
 
