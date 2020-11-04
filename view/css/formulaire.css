@@ -1,10 +1,12 @@
 
-.formulaire
+#formulaire
 {
     display: block;
     text-align: center;
 }
-
+div #formulaire{
+	padding: 10px;
+}
 .rechercher{
     border: rgb(80, 115, 161);
 	border-radius: 3px;

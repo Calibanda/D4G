@@ -1,8 +1,25 @@
 body{
     background-color: rgb(235, 235, 235);
+<<<<<<< HEAD
 }
+=======
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 0;
+    padding: 0;
+
+}
+
+
+/* ############### HEADER ##############*/
+.nav{
+    position: fixed;
+    width: 100%;
+}
+>>>>>>> 33623fc3212a49e64d4f014b6f4ce2aea90bcdb5
 nav ul{
     display: flex;
+    text-align: right;
+    top: 0;
     padding: 0px;
     margin: 0px;
     list-style-type: none;
@@ -36,24 +53,87 @@ nav #img_banner{
     float: left;
 }
 
-/* ############### HEADER ##############*/
-
-
 
 /* ################ MAIN #################*/
-form{
-    margin-top: 20%;
+.main{
+
+}
+h1{
+    text-align: center;
 }
 
+#presentation{
+    width: 80%;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 30px;
+    padding-bottom: 20px;
+    text-align: justify;
+    background-color: rgb(255, 255, 255);
+}
+#recherche{
+    width: 80%;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: justify;
+}
+#formulaire
+{
+    display: block;
+    text-align: center;
+}
+div form #formulaire{
+	padding: 10px;
+}
+.rechercher{
+    border: rgb(80, 115, 161);
+	border-radius: 3px;
+	background-color: rgb(80, 115, 161);
+	margin: 10px;
+	padding: 5px;
+	color: white;
+	cursor: pointer;
+}
+.rechercher:hover{
+    border: #4384b3;
+	border-radius: 3px;
+    background-color: rgba(55,158,230,0.5);
+	margin: 10px;
+	padding: 5px;
+	color: white;
+	cursor: pointer;
 
+}
+
+#donnees{
+    width: 80%;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: justify;
+    background-color: rgb(255, 255, 255);
+}
+
+#resume{
+    width: 80%;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 20px;
+    padding-bottom: 50px;
+    text-align: justify;
+
+}
 /*#################### FOOTER #########################*/
 
 footer{
     position: fixed;
     bottom: 0;
-    height: 75px;
-    max-height: 75px;
-	background-color: rgb(125, 209, 220);
+    height: 50px;
+    max-height: 50px;
+	background-color: #373f40;
 	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
 	box-sizing: border-box;
 	border-top: 1px solid #949494;
@@ -62,9 +142,22 @@ footer{
 	font: normal 16px sans-serif;
 	padding: 15px 50px;
 }
+footer p{
+    display: inline-block;
+    color: white;
+    margin: auto;
+    padding: 0 10% 0 10%;
 
-.copyright-text
-{
-	margin:15px;
 }
+
+footer a{
+    color: white;
+    text-decoration: none;
+}
+
+footer a:hover{
+    color: rgb(199, 199, 199);
+    text-decoration: none;
+}
+
 /* Fin Footer */
