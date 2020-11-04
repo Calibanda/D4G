@@ -7,6 +7,7 @@
 		
         <link rel="icon" type="image/jpg" href="./assets/images/DESIGN4GREEN_logo_carre_HD.jpg" />
         <link rel="stylesheet" type="text/css" href="./css/style.css">
+        <link rel="stylesheet" type="text/css" href="./css/formulaire.css">
         
     </head>
     <body>
@@ -18,18 +19,20 @@
             </nav>
         </header>
         <main>
-            <form action="" method="get" class="formulaire">
-                <div class="formulaire">
+            <div class="formulaire">
+            <form action="" method="get" class="">
+                <div class="form">
                     <label for="CodePostal">Code Postal: </label>
-                    <input type="text" name="CodePostal" id="CodePostal" required>
+                    <input type="text" name="CodePostal" id="CodePostal" pattern="[0-9]{5}" required>
                 </div>
-                <div class="formulaire">
-                    
+                <div class="form">
+
                 </div>
-                <div class="formulaire">
-                    <input type="submit" value="Rechercher">
+                <div class="form">
+                    <input class="rechercher" type="submit" value="Rechercher">
                 </div>
             </form>
+            </div>
         </main>
         <footer>
 				<p>&copy; Crew'stibat</p>
