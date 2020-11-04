@@ -10,6 +10,10 @@ var path = require("path");
 //store the express in a variable 
 var app = express();
 
+app.use(cors({
+    origin: '*'
+}));
+
 const MongoClient = require('mongodb').MongoClient;
 const uri = "mongodb+srv://AINADMIN:AINADMIN@icv-in-practice.fer4c.mongodb.net/accesInterfacesNumeriques?retryWrites=true&w=majority";
 const client = new MongoClient(uri, { useNewUrlParser: true,  useUnifiedTopology: true});
