@@ -1,19 +1,12 @@
 "use strick";
 
-var myInit ={ method: 'GET',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            mode: 'cors',
-            cache: 'default' };
+window.onload = Log();
 
-
-let myRequest = new Request("./cities.json", myInit);
-
-fetch(myRequest)
-    .then(function(resp) {
-        resp.json();
+function Log(){
+    fetch('http://jsonplaceholder.typicode.com/users')
+    .then(function (response) {
+        return response.json()
+    }).then(function(data){
+        console.log(data)
     })
-    .then(function(data){
-        console.log(data.department_code); 
-    });
+}
