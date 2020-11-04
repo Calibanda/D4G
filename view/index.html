@@ -7,7 +7,7 @@
 		
         <link rel="icon" type="image/jpg" href="./assets/images/DESIGN4GREEN_logo_carre_HD.jpg" />
         <link rel="stylesheet" type="text/css" href="./css/style.css">
-        
+        <script type="text/javascript" src="./js/index.js"></script>
     </head>
     <body>
         <nav>
@@ -18,8 +18,24 @@
                 <li><a href="#">Résumé</a></li>
             </ul>
         </nav>
-
         <main>
+            <form action="" method="get" class="formulaire">
+                <div class="formulaire">
+                    <label for="CodePostal">Code Postal: </label>
+                    <input type="text" name="CodePostal" id="CodePostal" required>
+                </div>
+                <div class="formulaire">
+                <div class="formulaire">
+                        <label for="CodePostal">Département: </label>
+                        <select name="pets" id="Departement">
+                            <option value="">--Please choose an option--</option>
+                        </select>
+                </div>
+                </div>
+                <div class="formulaire">
+                    <input type="submit" value="Rechercher">
+                </div>
+            </form>
         </main>
         <footer>
 				<p>&copy; Crew'stibat</p>
