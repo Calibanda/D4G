@@ -48,7 +48,7 @@ client.connect(function (err) {
     });
 
     /// Back-end: Node.js + Mongoose (MongoDB)
-    app.get('/api/seach/:postal_code', (req, res) => {
+    app.get('/api/search/:postal_code', (req, res) => {
         var response = {
             CodePostal : req.params.postal_code
             };
