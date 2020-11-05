@@ -114,7 +114,7 @@ function generate_data(res) {
     res.forEach(element => {
         var Line = document.createElement("tr");
         var col1 = document.createElement("td");
-        var cellText = document.createTextNode(element["Libcom"] + " " + element["Nom Iris"]);
+        var cellText = document.createTextNode(element["Libcom"] != element["Nom Iris"] ? element["Libcom"] + " " + element["Nom Iris"] : element["Libcom"]);
         col1.appendChild(cellText);
         Line.appendChild(col1);
         var col1 = document.createElement("td");
@@ -196,9 +196,32 @@ function generate_data(res) {
     div_tableau.appendChild(tbl);
     tbl.setAttribute("border", "2");
 
+}
 
 
 
+function createPdf(){
+
+    document.getElementById("pdf-button").disabled = true;
+    
+    var doc = new jsPDF();
+
+    doc.setFontSize(22);
+    doc.text(20, 20, "Résultats l’indice de fragilité numérique");
+
+    doc.setFontSize(16);
+    for (let i = 0; i < res.length; i++) {
+        doc.text(20, 30 + i * 70, "Ville de " + res[i]["Libcom"] + " " + res[i]["Nom Iris"]);
+        doc.text(20, 40 + i * 70, "Score global : " + res[i]["SCORE GLOBAL epci 1"]);
+        doc.text(20, 50 + i * 70, "Accès aux interfaces numérique : " + res[i]["ACCÈS AUX INTERFACES NUMERIQUES epci 1"]);
+        doc.text(20, 60 + i * 70, "Accès a l'information : " + res[i]["ACCES A L'INFORMATION epci 1"]);
+        doc.text(20, 70 + i * 70, "Compétences administrative : " + res[i]["COMPETENCES ADMINISTATIVES epci 1"]);
+        doc.text(20, 80 + i * 70, "Compétences numérique / scolaire : " + res[i]["COMPÉTENCES NUMÉRIQUES / SCOLAIRES epci 1"]);
+    }
+
+    doc.save('IFN.pdf');
+
+    document.getElementById("pdf-button").disabled = false;
 }
 
 
