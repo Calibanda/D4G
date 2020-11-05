@@ -1,12 +1,13 @@
 
 var json;
-
+var zipcode
+var oldSearch=[];
 function init() {
     var myInit = {
         method: 'GET',
         mode: 'cors',
     }
-    var retourCP = "";
+    var retourCP = "0";
 
     fetch('http://vps-2377b176.vps.ovh.net:8888/js/departements_cities.json', myInit)
         .then(function (response) {
@@ -26,10 +27,13 @@ function init() {
 
 
 window.onload = function () {
+    retourCP ="";
     init();
 };
 
 function returnCP() {
+    document.getElementById("CodePostal").value="";
+    document.getElementById("CodePostal").disabled=true;
     value = document.getElementById("list_citie").value;
     retourCP = value.replace(/[^0-9]/g, "");
     console.log(retourCP);
@@ -39,6 +43,8 @@ function ChooseCitie() {
     if (!json) {
         return;
     }
+    document.getElementById("CodePostal").value="";
+    document.getElementById("CodePostal").disabled=true;
     var valueDepartement = document.getElementById("Departement").value;
     var y = document.getElementById("list_citie"); //on va écrire ici les nouvelles options
     while (y.firstChild) {

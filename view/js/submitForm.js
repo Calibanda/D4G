@@ -1,35 +1,45 @@
 function submitForm(zipcode) {
-
-    /*var zipcode = false
-
-    if ($("#CodePostal").val()) {
-        zipcode = $("#CodePostal").val();
+    if (zipcode==""){
+        zipcode = document.getElementById("CodePostal").value;
     }
-    else if ($("#city option:selected").text()) {
-        zipcode = $("#city option:selected").text();
-    }*/
+    alert(zipcode);
+var NewOrOld =0;
 
-    // console.log("zipcode: " + zipcode)
+    oldSearch.forEach(element => {
+        if(zipcode != element)
+        {
+            oldSearch.push(zipcode);
+            NewOrOld = 1;
+        }else{
+        NewOrOld = 0;
+        }
+    });
 
-    if (zipcode) {
+    if (NewOrOld==1) {
+        if (zipcode) {
 
-        $.ajax({
-            url: '/api/search/' + zipcode,
-            type: 'POST',
-            data: { zipcode: zipcode }
-        }).done(function (res) {
-            if (res.err) {
-                // console.log('error...ajax');
+            $.ajax({
+                url: '/api/search/' + zipcode,
+                type: 'POST',
+                data: { zipcode: zipcode }
+            }).done(function (res) {
+                if (res.err) {
+                    // console.log('error...ajax');
 
-            } else {
-                // console.log('res from ajax call is\n', res);
-                // window.location.reload();
+                } else {
+                    // console.log('res from ajax call is\n', res);
+                    // window.location.reload();
 
-                //TODO: Generate results from the "res" variable
-                generate_data(res);
+                    //TODO: Generate results from the "res" variable
+                    generate_data(res);
 
-            }
-        });
+                }
+            });
+        }
+        oldSearch = zipcode;
+    }else{
+        //generate data de la recherche data
     }
+
 
 }
