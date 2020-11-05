@@ -6,7 +6,7 @@ function submitForm(zipcode) {
 
 var NewOrOld =1;
 
-    oldSearch.forEach(element => {
+    oldsearch.forEach(element => {
         if(zipcode == element)
         {
             NewOrOld = 0;
@@ -14,7 +14,7 @@ var NewOrOld =1;
     });
 
     if (NewOrOld==1) {
-        oldSearch.push(zipcode);
+        oldsearch.push(zipcode);
             $.ajax({
                 url: '/api/search/' + zipcode,
                 type: 'POST',
@@ -36,7 +36,7 @@ var NewOrOld =1;
 
                 }
             });
-        oldSearch = zipcode;
+        oldsearch = zipcode;
     }else{
         //generate data de la recherche data
 
