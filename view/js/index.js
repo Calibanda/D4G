@@ -31,10 +31,6 @@ function init() {
 window.onload = function () {
     retourCP = "";
     init();
-    var element = document.getElementById("rgpd");
-    var element1 = document.getElementById("cgu");
-    element.style.display = "none";
-    element1.style.display = "none";
 }
 
 function buttRGPD(){

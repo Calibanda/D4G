@@ -63,6 +63,11 @@ nav #img_banner{
     text-align: justify;
 
 }
+
+#rgpd, #cgu{
+    display: none;
+}
+
 h1{
     text-align: center;
 }
