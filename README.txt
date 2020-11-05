@@ -1,6 +1,6 @@
 # README team Crew'stibat
 
-<h1>Fragilité numérique team Crew'stibat</h1>
+Fragilité numérique team Crew'stibat
 
 Les sources de ce challenge restent la propriété de l'équipe de développeurs 
 
