@@ -235,7 +235,8 @@ function createPdf() {
     data = oldsearch[Object.keys(oldsearch)[0]]
 
     for (let i = 0; i < data.length; i++) {
-        doc.text(20, 30 + (i % 4) * 70, "Ville de " + data[i]["Libcom"] + " " + data[i]["Nom Iris"]);
+        var name_city = element["Libcom"] != element["Nom Iris"] ? data[i]["Libcom"] + " " + data[i]["Nom Iris"] : data[i]["Libcom"]
+        doc.text(20, 30 + (i % 4) * 70, "Ville de " + name_city);
         doc.text(20, 40 + (i % 4) * 70, "Score global : " + data[i]["SCORE GLOBAL epci 1"]);
         doc.text(20, 50 + (i % 4) * 70, "Accès aux interfaces numérique : " + data[i]["ACCÈS AUX INTERFACES NUMERIQUES epci 1"]);
         doc.text(20, 60 + (i % 4) * 70, "Accès a l'information : " + data[i]["ACCES A L'INFORMATION epci 1"]);
