@@ -63,6 +63,7 @@ function buttCGU(){
 function returnCP() {
     value = document.getElementById("list_citie").value;
     retourCP = value.replace(/[^0-9]/g, "");
+    document.getElementById("CodePostal").value= retourCP ;
     console.log(retourCP);
 }
 
