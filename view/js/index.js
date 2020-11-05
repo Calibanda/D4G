@@ -1,41 +1,15 @@
-window.onload = function(){
-    var element = document.getElementById("rgpd");
-    var element1 = document.getElementById("cgu");
-    element.style.display = "none";
-    element1.style.display = "none";
 
-    var json;
-}
-function buttRGPD(){
-    var element = document.getElementById("rgpd");
-    var element1 = document.getElementById("cgu");
-    element1.style.display = "none";
-    if (element.style.display === "block"){
-        element.style.display = "none";
-    } else {
-        element.style.display = "block";
-       
-    }
-}
-function buttCGU(){
-    var element = document.getElementById("cgu");
-    var element1 = document.getElementById("rgpd");
-    element1.style.display = "none";
-    if (element.style.display === "block"){
-        element.style.display = "none";
-    } else {
-        element.style.display = "block";
-       
-    }
-}
-
+var json;
+var zipcode
+var oldsearch={};
+var storedata=[];
 
 function init() {
     var myInit = {
         method: 'GET',
         mode: 'cors',
     }
-    var retourCP = "";
+    var retourCP = "0";
 
     fetch('http://vps-2377b176.vps.ovh.net:8888/js/departements_cities.json', myInit)
         .then(function (response) {
@@ -55,37 +29,13 @@ function init() {
 
 
 window.onload = function () {
+    retourCP ="";
     init();
-
-    var element = document.getElementById("rgpd");
-    var element1 = document.getElementById("cgu");
-    element.style.display = "none";
-    element1.style.display = "none";
-}
-
-function buttRGPD() {
-    var element = document.getElementById("rgpd");
-    var element1 = document.getElementById("cgu");
-    element1.style.display = "none";
-    if (element.style.display === "block") {
-        element.style.display = "none";
-    } else {
-        element.style.display = "block";
-    }
-}
-function buttCGU() {
-    var element = document.getElementById("cgu");
-    var element1 = document.getElementById("rgpd");
-    element1.style.display = "none";
-    if (element.style.display === "block") {
-        element.style.display = "none";
-    } else {
-        element.style.display = "block";
-
-    }
-}
+};
 
 function returnCP() {
+    document.getElementById("CodePostal").value="";
+    document.getElementById("CodePostal").disabled=true;
     value = document.getElementById("list_citie").value;
     retourCP = value.replace(/[^0-9]/g, "");
     console.log(retourCP);
@@ -95,6 +45,8 @@ function ChooseCitie() {
     if (!json) {
         return;
     }
+    document.getElementById("CodePostal").value="";
+    document.getElementById("CodePostal").disabled=true;
     var valueDepartement = document.getElementById("Departement").value;
     var y = document.getElementById("list_citie"); //on va écrire ici les nouvelles options
     while (y.firstChild) {
@@ -162,7 +114,7 @@ function generate_data(res) {
     res.forEach(element => {
         var Line = document.createElement("tr");
         var col1 = document.createElement("td");
-        var cellText = document.createTextNode(element["Libcom"] + " " + element["Nom Iris"]);
+        var cellText = document.createTextNode(element["Libcom"] != element["Nom Iris"] ? element["Libcom"] + " " + element["Nom Iris"] : element["Libcom"]);
         col1.appendChild(cellText);
         Line.appendChild(col1);
         var col1 = document.createElement("td");
@@ -242,29 +194,35 @@ function generate_data(res) {
         tbl.appendChild(Line);
     });
     div_tableau.appendChild(tbl);
+
+    tbl.setAttribute("border", "2");
+
 }
 
 
-// createPdf();
-async function createPdf() {
-    // import { PDFDocument, StandardFonts, rgb } from 'pdf-lib';
+
+function createPdf(){
 
     document.getElementById("pdf-button").disabled = true;
-    const pdfDoc = await PDFDocument.create();
-    const timesRomanFont = await pdfDoc.embedFont(StandardFonts.TimesRoman);
+    
+    var doc = new jsPDF();
 
-    const page = pdfDoc.addPage();
-    const { width, height } = page.getSize();
-    const fontSize = 30;
-    page.drawText('Creating PDFs in JavaScript is awesome!', {
-        x: 50,
-        y: height - 4 * fontSize,
-        size: fontSize,
-        font: timesRomanFont,
-        color: rgb(0, 0.53, 0.71),
-    });
+    doc.setFontSize(22);
+    doc.text(20, 20, "Résultats l’indice de fragilité numérique");
 
-    const pdfBytes = await pdfDoc.save();
+    doc.setFontSize(16);
+    for (let i = 0; i < res.length; i++) {
+        doc.text(20, 30 + i * 70, "Ville de " + res[i]["Libcom"] + " " + res[i]["Nom Iris"]);
+        doc.text(20, 40 + i * 70, "Score global : " + res[i]["SCORE GLOBAL epci 1"]);
+        doc.text(20, 50 + i * 70, "Accès aux interfaces numérique : " + res[i]["ACCÈS AUX INTERFACES NUMERIQUES epci 1"]);
+        doc.text(20, 60 + i * 70, "Accès a l'information : " + res[i]["ACCES A L'INFORMATION epci 1"]);
+        doc.text(20, 70 + i * 70, "Compétences administrative : " + res[i]["COMPETENCES ADMINISTATIVES epci 1"]);
+        doc.text(20, 80 + i * 70, "Compétences numérique / scolaire : " + res[i]["COMPÉTENCES NUMÉRIQUES / SCOLAIRES epci 1"]);
+    }
+
+    doc.save('IFN.pdf');
+
+    document.getElementById("pdf-button").disabled = false;
 }
 
 
