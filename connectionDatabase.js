@@ -54,7 +54,7 @@ client.connect(function (err) {
     });
 
     /// Back-end: Node.js + Mongoose (MongoDB)
-    app.get('/api/search/:zipcode', (req, res) => {
+    app.search('/api/search/:zipcode', (req, res) => {
         var query = {
             "Code postal" : req.params.zipcode
             // "Code postal" : "13420"
