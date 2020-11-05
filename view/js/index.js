@@ -246,7 +246,7 @@ function createPdf() {
         doc.text(20, (70 + i * 70) % 300, "Compétences administrative : " + data[i]["COMPETENCES ADMINISTATIVES epci 1"]);
         doc.text(20, (80 + i * 70) % 300, "Compétences numérique / scolaire : " + data[i]["COMPÉTENCES NUMÉRIQUES / SCOLAIRES epci 1"]);
 
-        if (i > 0 && (80 + i * 70) % 300 == 0) {
+        if (i > 0 && (90 + i * 70) % 300 == 0) {
             doc.addPage();
         }
     }
