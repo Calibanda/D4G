@@ -43,7 +43,8 @@ client.connect(function (err) {
                 throw err;
             }
             // console.log(result);
-            return res.send(200, result);
+            //return res.send(200, result); // express deprecated res.send(status, body): Use res.status(status).send(body) instead connectionDatabase.js:46:24
+            return res.status(200).send(result);
         })
     });
 });
