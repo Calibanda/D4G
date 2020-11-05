@@ -1,6 +1,10 @@
 //import the express module
 var express = require('express');
 
+const compression = require('compression');
+// Compress all HTTP responses
+app.use(compression());
+
 //import body-parser
 var bodyParser = require('body-parser');
 const { response } = require('express');
