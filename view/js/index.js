@@ -4,6 +4,7 @@ window.onload = function(){
     element.style.display = "none";
     element1.style.display = "none";
 
+    var json;
 }
 function buttRGPD(){
     var element = document.getElementById("rgpd");
@@ -28,62 +29,99 @@ function buttCGU(){
     }
 }
 
-var myInit = {
-    method: 'GET',
-    mode: 'cors',
-}
-var option = document.createElement("option");
-
-var json = fetch('http://vps-2377b176.vps.ovh.net:8888/js/departements_cities.json', myInit)
-    .then(function (response) {
-        return response.json()
-    }).then(function (data) {
-        var x = document.getElementById("Departement");
-        for (let i = 0; i < data.length; i++) {
-            var option = document.createElement("option");
-            option.setAttribute("name", data[i]["name"])
-            option.text = data[i]["name"];
-            x.add(option);
-        }
-        return data;
-
-    })
-
-window.onload = function () {
-    generate_data();
-};
-
-
-function ChooseCitie() {
-    var valueDepartement = document.getElementById("Departement").value;
-    var y = document.getElementById("list_citie"); //on va écrire ici les nouvelles options
+function init() {
+    var myInit = {
+        method: 'GET',
+        mode: 'cors',
+    }
+    var retourCP = "";
 
     fetch('http://vps-2377b176.vps.ovh.net:8888/js/departements_cities.json', myInit)
         .then(function (response) {
             return response.json()
         }).then(function (data) {
+            var x = document.getElementById("Departement");
             for (let i = 0; i < data.length; i++) {
-                if (data[i]["name"] == valueDepartement) {
-                    for (key in data[i]["cities"]) {
-                        option.setAttribute("name", key)
-                        option.text = `${key}: ${data[i]["cities"][key]}`;
-                        y.add(option);
-                        console.log(1);
-                        console.log(`${key}: ${data[i]["cities"][key]}`);
+                var option = document.createElement("option");
+                option.setAttribute("name", data[i]["name"])
+                option.text = data[i]["name"];
+                x.add(option);
+            }
+            json = data;
 
-                    }
-                    
+        });
+}
 
-                }
+
+window.onload = function () {
+    init();    
+    
+    var element = document.getElementById("rgpd");
+    var element1 = document.getElementById("cgu");
+    element.style.display = "none";
+    element1.style.display = "none";
+}
+
+function buttRGPD(){
+    var element = document.getElementById("rgpd");
+    var element1 = document.getElementById("cgu");
+    element1.style.display = "none";
+    if (element.style.display === "block"){
+        element.style.display = "none";
+    } else {
+        element.style.display = "block";
+    }
+}
+function buttCGU(){
+    var element = document.getElementById("cgu");
+    var element1 = document.getElementById("rgpd");
+    element1.style.display = "none";
+    if (element.style.display === "block"){
+        element.style.display = "none";
+    } else {
+        element.style.display = "block";
+       
+    }
+}
+
+function returnCP() {
+    value = document.getElementById("list_citie").value;
+    retourCP = value.replace(/[^0-9]/g, "");
+    console.log(retourCP);
+}
+
+function ChooseCitie() {
+    if (!json) {
+        return;
+    }
+    var valueDepartement = document.getElementById("Departement").value;
+    var y = document.getElementById("list_citie"); //on va écrire ici les nouvelles options
+    while (y.firstChild) {
+        y.removeChild(y.firstChild);
+    }
+    for (let i = 0; i < json.length; i++) {
+        if (json[i]["name"] == valueDepartement) {
+            for (key in json[i]["cities"]) {
+                var option = document.createElement("option");
+                option.text = `${key}: ${json[i]["cities"][key]}`;
+                y.add(option);
 
             }
-            return data;
+        }
 
-        })
-
+    }
+    console.log(option);
 }
-function generate_data() {
+
+function generate_data(res) {
     var div_tableau = document.getElementById("communes");
+
+    while (div_tableau.firstChild) {
+        div_tableau.removeChild(div_tableau.firstChild);
+    }
+
+    h1 = document.createElement("h1");
+    div_tableau.appendChild(h1);
     var tbl = document.createElement("table");
     var firstLine = document.createElement("tr");
 
@@ -123,7 +161,7 @@ function generate_data() {
     res.forEach(element => {
         var Line = document.createElement("tr");
         var col1 = document.createElement("td");
-        var cellText = document.createTextNode(element["Nom Com"] + " " + element["Nom Iris"]);
+        var cellText = document.createTextNode(element["Libcom"] + " " + element["Nom Iris"]);
         col1.appendChild(cellText);
         Line.appendChild(col1);
         var col1 = document.createElement("td");
@@ -181,7 +219,7 @@ function generate_data() {
         col1.appendChild(cellText);
         Line.appendChild(col1);
         var col1 = document.createElement("td");
-        var cellText = document.createTextNode(element["SCORE GLOBAL region *"]);
+        var cellText = document.createTextNode(element["SCORE GLOBAL region * "]);
         col1.appendChild(cellText);
         Line.appendChild(col1);
         var col1 = document.createElement("td");
@@ -204,15 +242,22 @@ function generate_data() {
     });
     div_tableau.appendChild(tbl);
     tbl.setAttribute("border", "2");
+}
 
 
-
-
+createPdf();
+async function createPdf() {
+    const pdfDoc = await PDFLib.PDFDocument.create();
+    const page = pdfDoc.addPage([350, 400]);
+    page.moveTo(110, 200);
+    page.drawText('Hello World!');
+    const pdfDataUri = await pdfDoc.saveAsBase64({ dataUri: true });
+    document.getElementById('pdf').src = pdfDataUri;
 }
 
 
 
-var res = [
+/*var res = [
     {
         "Nom Com": "Gémenos",
         "Code Iris": 130420102,
@@ -293,4 +338,4 @@ var res = [
         "SCORE GLOBAL epci 1": "94,261417341",
         "SCORE GLOBAL region *": 93
     }
-]
+]*/
