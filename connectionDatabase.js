@@ -30,9 +30,9 @@ client.connect(function (err) {
         console.log ("Connected successfully !");
     }
 
-    //route the GET request to the specified path, "/user". 
+    /*//route the GET request to the specified path, "/user". 
     //This sends the user information to the path  
-    app.post('/displayValues', function(req, res){
+    app.get('/displayValues', function(req, res){
         var response = {
             Foyer : req.body.foyer
             };
@@ -81,7 +81,7 @@ client.connect(function (err) {
             res.status.json({ err: err });
         });
     });
-
+*/
 
 
     /*app.post('/connexiondb', function(req, res){
