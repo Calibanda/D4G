@@ -3,7 +3,7 @@
 	<head>
         <meta charset="utf-8">
 		
-		<title>Le Carnet du numérique du logement</title>
+		<title>Fragilité numérique</title>
 		
         <link rel="icon" type="image/jpg" href="./assets/images/DESIGN4GREEN_logo_carre_HD.jpg" />
         <link rel="stylesheet" type="text/css" href="./css/style.css">
@@ -16,9 +16,10 @@
     </head>
     <body>
         <header>
+
             <nav class="nav">
+                <img id="img_banner" src="./assets/images/inr.png" alt="Logo INR">
                 <ul>
-                    <img id="img_banner" src="./assets/images/inr.png">
                     <li><a href="#presentation">Présentation</a></li>
                     <li><a href="#formulaire">Données</a></li>
                     <li><a href="#resume">Résumé</a></li>
@@ -42,7 +43,6 @@
                     l’inclusion numérique sur leur territoire. Quelques collectivités pionnières l’ont déjà mis en 
                     œuvre et leurs retours d’expérience ont participé à la conception de ce kit. 
                 </p>
-                <p>
                     Il comprend deux documents:
                     <ul>
                         <li>La méthodologie de l’indice de fragilité numérique en un clin d’œil pour mettre en 
@@ -51,21 +51,20 @@
                             Le travail est sous licence Creative Commons cc-by-sa. La bonne lecture des CGU est donc 
                             importante. L’utilisation de l’indice de fragilité numérique vaut acceptation des CGU. </li>
                     </ul>
-                </p>
             </div>
 
             <div id="formulaire">
                 <h1>Recherche</h1>
 
                 <form action="javascript:submitForm(retourCP)" method="get" class="">
-                    <div class="">
+                    <div class="cp">
                         <label for="CodePostal">Code Postal: </label>
-                        <input type="text" name="CodePostal" id="CodePostal" pattern="[0-9]{5}" required>
+                        <input type="text" name="CodePostal" id="CodePostal" placeholder="Entrez un code postal" pattern="[0-9]{5}" required>
                     </div>
-                    <div class="">
+                    <div class="deptcom">
                             <label for="CodePostal">Département: </label>
                             <select name="departement" id="Departement" onchange="ChooseCitie()">
-                                <option value="">--Please choose an option--</option>
+                                <option value="">--Choisissez une option--</option>
                             </select>
 
                             <label for="CodePostal">Commune: </label>
@@ -84,9 +83,10 @@
                   
 
                 </div>
+                <button onclick="javascript:createPdf()" id="pdf-button">DOWNLOAD PDF</button>
             </div>
 
-            <button onclick="javascript:createPdf()" id="pdf-button">DOWNLOAD PDF</button>
+            
             
             <div id="resume">
                 <h1>Résumé</h1>
@@ -112,7 +112,6 @@
                     49124 Saint-Barthélemy-d'Anjou.
                 </p>
                 <h3>3. Contenu du site</h3>
-                <p>
                     La team 2 décline toute responsabilité du fait d’erreurs, d’omissions, ou pour les résultats qui pourraient être 
                     obtenus par l’usage de ces informations ou des liens hypertextes présents sur son site web.
                     <h5>Droit de reproduction</h5> 
@@ -122,7 +121,6 @@
                     quelconque. ».
                     <h5>Données nominatives</h5>
                     La team 2 ne collecte pas d’informations personnelles relatives à l’utilisateur du site web.
-                </p>
                     
                 
             </div>
@@ -150,7 +148,6 @@
                     « Utilisateur » : Personne physique ou morale à qui le Kit est mis à disposition, sous réserve du respect des présentes Conditions générales d’utilisation.</li>
                 </ol>
                 <h3>ARTICLE 3 - Propriété intellectuelle</h3>
-                <p>
                     Conformément à l’article 3(b) de la Licence, l’Utilisateur peut créer une Œuvre dérivée. Toutefois, s’il partage cette œuvre, il s’engage à :
                     <ul>
                         <li>Placer l’Œuvre dérivée sous une licence compatible BY-SA ;</li>
@@ -158,7 +155,6 @@
                         <li>Ne pas proposer ou imposer de termes ou de conditions supplémentaires ou différents, ni appliquer des mesures techniques à l’Œuvre dérivée qui seraient de nature à restreindre l’exercice des droits accordés par la Licence.</li>
                     </ul>
                     Toute représentation ou exploitation du Kit ou de l’une des Œuvres qui le compose qui ne respecte pas les obligations du présent article ou de la Licence constitue une contrefaçon sanctionnée par les articles L 335-2 et suivants du Code de la propriété intellectuelle.
-                </p>
                 <h3>ARTICLE 4 -  Réciprocité</h3>
                 <p>
                     L’Utilisateur s’engage à transmettre toute Œuvre dérivée qui serait produite par ou pour l’Utilisateur, ou dont l’Utilisateur aurait eu connaissance
