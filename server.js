@@ -2,8 +2,6 @@
 var express = require('express');
 
 const compression = require('compression');
-// Compress all HTTP responses
-app.use(compression());
 
 //import body-parser
 var bodyParser = require('body-parser');
@@ -13,6 +11,9 @@ var path = require("path");
 
 //store the express in a variable 
 var app = express();
+
+// Compress all HTTP responses
+app.use(compression());
 
 var cors = require('cors')
 
