@@ -5,11 +5,18 @@ var myInit ={
      mode: 'cors',
 }
 
-fetch('http://vps-2377b176.vps.ovh.net:8888/departements_cities.json',myInit)
+fetch('http://vps-2377b176.vps.ovh.net:8888/js/departements_cities.json',myInit)
     .then(function (response) {
         return response.json()
     }).then(function (data) {
-        console.log(data);        
+        var x = document.getElementById("Departement");
+        for (let i=0; i < data.length ; i++ )
+        {
+            var option = document.createElement("option");
+            option.text = data[i]["name"];
+            x.add(option);
+        }
+        
     })
 
 window.onload = function(){
@@ -57,7 +64,7 @@ function generate_data(){
     res.forEach(element => {
         var Line = document.createElement("tr");
         var col1 = document.createElement("td");
-        var cellText = document.createTextNode(element["Nom Com"]);
+        var cellText = document.createTextNode(element["Nom Com"]+" "+element["Nom Iris"]);
         col1.appendChild(cellText);
         Line.appendChild(col1);
         var col1 = document.createElement("td");
