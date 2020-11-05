@@ -56,7 +56,7 @@ function ChooseCitie() {
         })
 
 }
-function generate_data() {
+function generate_data(res) {
     var div_tableau = document.getElementById("communes");
     h1 = document.createElement("h1");
     div_tableau.appendChild(h1);
@@ -188,7 +188,7 @@ function generate_data() {
 
 
 
-var res = [
+/*var res = [
     {
         "Nom Com": "Gémenos",
         "Code Iris": 130420102,
@@ -269,4 +269,4 @@ var res = [
         "SCORE GLOBAL epci 1": "94,261417341",
         "SCORE GLOBAL region *": 93
     }
-]
+]*/

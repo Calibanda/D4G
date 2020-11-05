@@ -24,10 +24,10 @@ function submitForm(zipcode) {
                 // window.location.reload();
 
                 //TODO: Generate results from the "res" variable
+                generate_data(res);
 
             }
         });
     }
 
-    return res;
 }
