@@ -58,6 +58,11 @@ function ChooseCitie() {
 }
 function generate_data(res) {
     var div_tableau = document.getElementById("communes");
+    
+    while (div_tableau.firstChild) {
+        div_tableau.removeChild(div_tableau.firstChild);
+    }
+
     h1 = document.createElement("h1");
     div_tableau.appendChild(h1);
     var tbl = document.createElement("table");
@@ -99,7 +104,7 @@ function generate_data(res) {
     res.forEach(element => {
         var Line = document.createElement("tr");
         var col1 = document.createElement("td");
-        var cellText = document.createTextNode(element["Nom Com"] + " " + element["Nom Iris"]);
+        var cellText = document.createTextNode(element["Libcom"] + " " + element["Nom Iris"]);
         col1.appendChild(cellText);
         Line.appendChild(col1);
         var col1 = document.createElement("td");
