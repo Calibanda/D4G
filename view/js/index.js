@@ -113,7 +113,7 @@ function generate_data(res) {
     res.forEach(element => {
         var Line = document.createElement("tr");
         var col1 = document.createElement("td");
-        var cellText = document.createTextNode(element["Libcom"] + " " + element["Nom Iris"]);
+        var cellText = document.createTextNode(element["Libcom"] != element["Nom Iris"] ? element["Libcom"] + " " + element["Nom Iris"] : element["Libcom"]);
         col1.appendChild(cellText);
         Line.appendChild(col1);
         var col1 = document.createElement("td");
