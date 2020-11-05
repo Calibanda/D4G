@@ -218,8 +218,8 @@ function generate_data(res) {
 
 // createPdf();
 async function createPdf() {
-    import { PDFDocument, StandardFonts, rgb } from 'pdf-lib';
-    
+    // import { PDFDocument, StandardFonts, rgb } from 'pdf-lib';
+
     document.getElementById("pdf-button").disabled = true;
     const pdfDoc = await PDFDocument.create();
     const timesRomanFont = await pdfDoc.embedFont(StandardFonts.TimesRoman);
