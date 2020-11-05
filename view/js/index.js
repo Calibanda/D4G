@@ -214,7 +214,7 @@ function generate_data(res) {
         tbl.appendChild(Line);
     });
     div_tableau.appendChild(tbl);
-
+    document.getElementById("donnees").style.boxShadow = "0 4px 6px 0 rgba(0, 0, 0, 0.3)";
     document.getElementById("pdf-button").style.display = "block";
 
 }
