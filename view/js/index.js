@@ -21,9 +21,9 @@ var json = fetch('http://vps-2377b176.vps.ovh.net:8888/js/departements_cities.js
 
     })
 
-window.onload = function () {
+/*window.onload = function () {
     generate_data();
-};
+};*/
 
 function returnCP(){
     value = document.getElementById("list_citie").value;
