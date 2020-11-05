@@ -58,7 +58,7 @@ function ChooseCitie() {
 }
 function generate_data(res) {
     var div_tableau = document.getElementById("communes");
-    
+
     while (div_tableau.firstChild) {
         div_tableau.removeChild(div_tableau.firstChild);
     }
@@ -162,7 +162,7 @@ function generate_data(res) {
         col1.appendChild(cellText);
         Line.appendChild(col1);
         var col1 = document.createElement("td");
-        var cellText = document.createTextNode(element["SCORE GLOBAL region *"]);
+        var cellText = document.createTextNode(element["SCORE GLOBAL region * "]);
         col1.appendChild(cellText);
         Line.appendChild(col1);
         var col1 = document.createElement("td");
