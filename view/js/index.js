@@ -1,64 +1,98 @@
 
+var json;
+var zipcode
+var oldsearch = {};
+var storedata = [];
 
-var myInit = {
-    method: 'GET',
-    mode: 'cors',
+function init() {
+    var myInit = {
+        method: 'GET',
+        mode: 'cors',
+    }
+    var retourCP = "0";
+
+    fetch('js/departements_cities.json', myInit)
+        .then(function (response) {
+            return response.json()
+        }).then(function (data) {
+            var x = document.getElementById("Departement");
+            for (let i = 0; i < data.length; i++) {
+                var option = document.createElement("option");
+                option.setAttribute("name", data[i]["name"])
+                option.text = data[i]["name"];
+                x.add(option);
+            }
+            json = data;
+
+        });
 }
-var retourCP = "";
 
-var json = fetch('http://vps-2377b176.vps.ovh.net:8888/js/departements_cities.json', myInit)
-    .then(function (response) {
-        return response.json()
-    }).then(function (data) {
-        var x = document.getElementById("Departement");
-        for (let i = 0; i < data.length; i++) {
-            var option = document.createElement("option");
-            option.setAttribute("name", data[i]["name"])
-            option.text = data[i]["name"];
-            x.add(option);
-        }
-        return data;
-
-    })
 
 window.onload = function () {
-    generate_data();
-};
+    retourCP = "";
+    init();
+}
 
-function returnCP(){
-    var newval;
+function buttRGPD(){
+    var element = document.getElementById("rgpd");
+    var element1 = document.getElementById("cgu");
+    element1.style.display = "none";
+    if (element.style.display === "block"){
+        element.style.display = "none";
+    } else {
+        element.style.display = "block";
+    }
+}
+
+function buttCGU(){
+    var element = document.getElementById("cgu");
+    var element1 = document.getElementById("rgpd");
+    element1.style.display = "none";
+    if (element.style.display === "block"){
+        element.style.display = "none";
+    } else {
+        element.style.display = "block";
+       
+    }
+}
+
+function returnCP() {
     value = document.getElementById("list_citie").value;
-    retourCP = value.replace(/[^0-9]{5}/g,"");
+    retourCP = value.match(/[0-9]{5}/);
+    document.getElementById("CodePostal").value= retourCP ;
     console.log(retourCP);
 }
 
 function ChooseCitie() {
+    if (!json) {
+        return;
+    }
     var valueDepartement = document.getElementById("Departement").value;
     var y = document.getElementById("list_citie"); //on va écrire ici les nouvelles options
-
-    fetch('http://vps-2377b176.vps.ovh.net:8888/js/departements_cities.json', myInit)
-        .then(function (response) {
-            return response.json()
-        }).then(function (data) {
-            for (let i = 0; i < data.length; i++) {
-                if (data[i]["name"] == valueDepartement) {
-                    for (key in data[i]["cities"]) {
-                        var option = document.createElement("option");
-                        option.text = `${key}: ${data[i]["cities"][key]}`;
-                        y.add(option);
-                        
-                    }
-                }
+    while (y.firstChild) {
+        y.removeChild(y.firstChild);
+    }
+    for (let i = 0; i < json.length; i++) {
+        if (json[i]["name"] == valueDepartement) {
+            for (key in json[i]["cities"]) {
+                var option = document.createElement("option");
+                option.text = `${key}: ${json[i]["cities"][key]}`;
+                y.add(option);
 
             }
-            console.log(option);            
-            return data;
+        }
 
-        })
-
+    }
+    console.log(option);
 }
-function generate_data() {
+
+function generate_data(res) {
     var div_tableau = document.getElementById("communes");
+
+    while (div_tableau.firstChild) {
+        div_tableau.removeChild(div_tableau.firstChild);
+    }
+
     h1 = document.createElement("h1");
     div_tableau.appendChild(h1);
     var tbl = document.createElement("table");
@@ -70,27 +104,27 @@ function generate_data() {
     firstLine.appendChild(col1);
 
     var col6 = document.createElement("th");
-    var cellText = document.createTextNode("score global");
+    var cellText = document.createTextNode("Score global");
     col6.appendChild(cellText);
     firstLine.appendChild(col6);
 
     var col2 = document.createElement("th");
-    var cellText = document.createTextNode("Accès aux interfaces numérique");
+    var cellText = document.createTextNode("Accès aux interfaces numériques");
     col2.appendChild(cellText);
     firstLine.appendChild(col2);
 
     var col3 = document.createElement("th");
-    var cellText = document.createTextNode("Accès a l'information");
+    var cellText = document.createTextNode("Accès à l'information");
     col3.appendChild(cellText);
     firstLine.appendChild(col3);
 
     var col4 = document.createElement("th");
-    var cellText = document.createTextNode("Compétences administrative");
+    var cellText = document.createTextNode("Compétences administratives");
     col4.appendChild(cellText);
     firstLine.appendChild(col4);
 
     var col5 = document.createElement("th");
-    var cellText = document.createTextNode("compétences numérique / scolaire");
+    var cellText = document.createTextNode("Compétences numériques / scolaires");
     col5.appendChild(cellText);
     firstLine.appendChild(col5);
 
@@ -100,7 +134,7 @@ function generate_data() {
     res.forEach(element => {
         var Line = document.createElement("tr");
         var col1 = document.createElement("td");
-        var cellText = document.createTextNode(element["Nom Com"] + " " + element["Nom Iris"]);
+        var cellText = document.createTextNode(element["Libcom"] != element["Nom Iris"] ? element["Libcom"] + " " + element["Nom Iris"] : element["Libcom"]);
         col1.appendChild(cellText);
         Line.appendChild(col1);
         var col1 = document.createElement("td");
@@ -158,7 +192,7 @@ function generate_data() {
         col1.appendChild(cellText);
         Line.appendChild(col1);
         var col1 = document.createElement("td");
-        var cellText = document.createTextNode(element["SCORE GLOBAL region *"]);
+        var cellText = document.createTextNode(element["SCORE GLOBAL region * "]);
         col1.appendChild(cellText);
         Line.appendChild(col1);
         var col1 = document.createElement("td");
@@ -180,16 +214,48 @@ function generate_data() {
         tbl.appendChild(Line);
     });
     div_tableau.appendChild(tbl);
-    tbl.setAttribute("border", "2");
-
-
-
+    document.getElementById("donnees").style.boxShadow = "0 4px 6px 0 rgba(0, 0, 0, 0.3)";
+    document.getElementById("pdf-button").style.display = "block";
 
 }
 
 
 
-var res = [
+function createPdf() {
+
+    document.getElementById("pdf-button").disabled = true;
+
+    var doc = new jsPDF();
+
+    doc.setFontSize(22);
+    doc.text(20, 20, "Résultats de l’indice de fragilité numérique");
+
+    doc.setFontSize(16);
+
+    data = oldsearch[Object.keys(oldsearch)[0]]
+
+    for (let i = 0; i < data.length; i++) {
+        var name_city = data[i]["Libcom"] != data[i]["Nom Iris"] ? data[i]["Libcom"] + " " + data[i]["Nom Iris"] : data[i]["Libcom"]
+        doc.text(20, 30 + (i % 4) * 70, "Ville de " + name_city);
+        doc.text(20, 40 + (i % 4) * 70, "Score global : " + data[i]["SCORE GLOBAL epci 1"]);
+        doc.text(20, 50 + (i % 4) * 70, "Accès aux interfaces numériques : " + data[i]["ACCÈS AUX INTERFACES NUMERIQUES epci 1"]);
+        doc.text(20, 60 + (i % 4) * 70, "Accès à l'information : " + data[i]["ACCES A L'INFORMATION epci 1"]);
+        doc.text(20, 70 + (i % 4) * 70, "Compétences administratives : " + data[i]["COMPETENCES ADMINISTATIVES epci 1"]);
+        doc.text(20, 80 + (i % 4) * 70, "Compétences numériques / scolaires : " + data[i]["COMPÉTENCES NUMÉRIQUES / SCOLAIRES epci 1"]);
+
+        if (i > 0 && (i + 1) % 4 == 0) {
+            doc.addPage();
+        }
+    }
+
+    doc.save('IFN.pdf');
+
+    document.getElementById("pdf-button").disabled = false;
+}
+
+
+
+/*var res = [
     {
         "Nom Com": "Gémenos",
         "Code Iris": 130420102,
@@ -270,4 +336,4 @@ var res = [
         "SCORE GLOBAL epci 1": "94,261417341",
         "SCORE GLOBAL region *": 93
     }
-]
+]*/

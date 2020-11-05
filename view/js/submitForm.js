@@ -1,16 +1,15 @@
-function submitForm(zipcode) {
+function submitForm() {
+    zipcode = document.getElementById("CodePostal").value;
 
-    /*var zipcode = false
+    var NewOrOld = 1;
 
-    if ($("#CodePostal").val()) {
-        zipcode = $("#CodePostal").val();
-    }
-    else if ($("#city option:selected").text()) {
-        zipcode = $("#city option:selected").text();
-    }*/
+    storedata.forEach(element => {
+        if (zipcode == Object.keys(element)[0]) {
+            NewOrOld = 0;
+        }
+    });
 
-    if (zipcode) {
-
+    if (NewOrOld == 1) {
         $.ajax({
             url: '/api/search/' + zipcode,
             type: 'POST',
@@ -20,14 +19,27 @@ function submitForm(zipcode) {
                 // console.log('error...ajax');
 
             } else {
-                console.log('res from ajax call is\n', res);
-                // window.location.reload();
+                // console.log('res from ajax call is\n', res);
 
-                //TODO: Generate results from the "res" variable
+                console.log(res);
+                var obj = { zipcode: res };
+                storedata.push(obj);
+                console.log(storedata[0].zipcode);
+                oldsearch = obj;
+                generate_data(res);
 
             }
         });
+    } else {
+        //generate data de la recherche data
+        storedata.forEach(element => {
+            if (zipcode == Object.keys(element)[0]) {
+                oldsearch = element;
+                generate_data(element.zipcode)
+            }
+        });
+
+
     }
 
-    //return false;
 }

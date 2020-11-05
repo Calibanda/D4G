@@ -11,6 +11,7 @@ body{
 .nav{
     position: fixed;
     width: 100%;
+    box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.3); 
 }
 nav ul{
     display: flex;
@@ -51,30 +52,31 @@ nav #img_banner{
 
 
 /* ################ MAIN #################*/
-.main{
+
+#presentation, #donnees, #resume, #rgpd, #cgu{
+    box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.3); 
+    width: 80%;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 30px;
+    padding-bottom: 60px;
+    text-align: justify;
 
 }
+
+#rgpd, #cgu{
+    display: none;
+}
+
 h1{
     text-align: center;
 }
 
 #presentation{
-    width: 80%;
-    padding-left: 10%;
-    padding-right: 10%;
-    padding-top: 30px;
-    padding-bottom: 20px;
-    text-align: justify;
+
     background-color: rgb(255, 255, 255);
 }
-#recherche{
-    width: 80%;
-    padding-left: 10%;
-    padding-right: 10%;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    text-align: justify;
-}
+
 #formulaire
 {
     display: block;
@@ -83,7 +85,14 @@ h1{
 div form #formulaire{
 	padding: 10px;
 }
-.rechercher{
+.deptcom, .cp {
+    padding: 15px;
+}
+input, select {
+    border-radius:5px;
+    border: solid 1px gray;
+}
+.rechercher, #pdf-button{
     border: rgb(80, 115, 161);
 	border-radius: 3px;
 	background-color: rgb(80, 115, 161);
@@ -92,7 +101,7 @@ div form #formulaire{
 	color: white;
 	cursor: pointer;
 }
-.rechercher:hover{
+.rechercher:hover, #pdf-button:hover{
     border: #4384b3;
 	border-radius: 3px;
     background-color: rgba(55,158,230,0.5);
@@ -102,29 +111,40 @@ div form #formulaire{
 	cursor: pointer;
 
 }
+#pdf-button{
+    display: none;
+}
 
-#donnees{
-    width: 80%;
-    padding-left: 10%;
-    padding-right: 10%;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    text-align: justify;
-    background-color: rgb(255, 255, 255);
+#communes{
+    border-collapse: collapse;
+    text-align: center;
+    position: center;
+    width: 100%;
+}
+#communes tr:nth-child(even){background-color: #f2f2f2;}
+
+#communes tr:hover {background-color: #ddd;}
+
+#communes th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  background-color: #5d7fca;
+  color: white;
 }
 
 #resume{
-    width: 80%;
-    padding-left: 10%;
-    padding-right: 10%;
-    padding-top: 20px;
     padding-bottom: 50px;
-    text-align: justify;
-
+    background-color: rgb(255, 255, 255);
 }
+
+
 table{
     text-align: center;
 }
+td, th{
+    padding: 10px;
+}
+
 /*#################### FOOTER #########################*/
 
 footer{
@@ -149,14 +169,23 @@ footer p{
 
 }
 
-footer a{
+
+.buttBas{
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
     color: white;
-    text-decoration: none;
+    font-size: medium;
+}
+.buttBas{
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    color: white;
+    font-size: medium; 
 }
 
-footer a:hover{
-    color: rgb(199, 199, 199);
-    text-decoration: none;
+.buttBas:hover{
+    color: rgb(119, 119, 119);
+    cursor: pointer;
 }
 
 /* Fin Footer */
