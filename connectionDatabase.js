@@ -55,13 +55,13 @@ client.connect(function (err) {
 
     /// Back-end: Node.js + Mongoose (MongoDB)
     app.get('/api/seach', (req, res) => {
-        var response = {
+        var query = {
             // "Code postal" : req.params.postal_code
             "Code postal" : 13420
             };
 
         var coll_donnees_communes = client.db("accesInterfacesNumeriques").collection("donneesCommunes");
-        coll_donnees_communes.find(response, function(err, result){
+        coll_donnees_communes.find(query).toArray(function(err, result){
             if (err) {
                 throw err;
             }
@@ -73,7 +73,7 @@ client.connect(function (err) {
                 res.end("Non trouvé");
             }
             console.log(result);
-        })
+        });
         // Todo.deleteOne({ _id: req.params.id })
 
 
