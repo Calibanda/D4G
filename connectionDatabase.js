@@ -66,22 +66,23 @@ client.connect(function (err) {
                 throw err;
             }
 
-            if (result) {
-                res.end("FIND");
-            }
-            else {
-                res.end("Non trouvé");
-            }
+            // if (result) {
+            //     res.end("FIND");
+            // }
+            // else {
+            //     res.end("Non trouvé");
+            // }
             console.log(result);
+            return res.send(200, result);
         })
         // Todo.deleteOne({ _id: req.params.id })
 
-        .then(() => {
-            res.json(result);
-        })
-        .catch(err => {
-            res.status.json({ err: err });
-        });
+        // .then(() => {
+        //     res.json(result);
+        // })
+        // .catch(err => {
+        //     res.status.json({ err: err });
+        // });
     });
 
 
