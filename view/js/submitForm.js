@@ -9,6 +9,8 @@ function submitForm(zipcode) {
         zipcode = $("#city option:selected").text();
     }*/
 
+    console.log("A")
+
     if (zipcode) {
 
         $.ajax({
