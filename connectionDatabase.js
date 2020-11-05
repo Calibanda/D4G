@@ -67,7 +67,7 @@ client.connect(function (err) {
             }
 
             if (result) {
-                res.end(result);
+                res.end("FIND");
             }
             else {
                 res.end("Non trouvé");
