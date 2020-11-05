@@ -3,21 +3,18 @@ function submitForm(zipcode) {
         zipcode = document.getElementById("CodePostal").value;
     }
     alert(zipcode);
-var NewOrOld =0;
+
+var NewOrOld =1;
 
     oldSearch.forEach(element => {
-        if(zipcode != element)
+        if(zipcode == element)
         {
-            oldSearch.push(zipcode);
-            NewOrOld = 1;
-        }else{
-        NewOrOld = 0;
+            NewOrOld = 0;
         }
     });
 
     if (NewOrOld==1) {
-        if (zipcode) {
-
+        oldSearch.push(zipcode);
             $.ajax({
                 url: '/api/search/' + zipcode,
                 type: 'POST',
@@ -35,7 +32,6 @@ var NewOrOld =0;
 
                 }
             });
-        }
         oldSearch = zipcode;
     }else{
         //generate data de la recherche data
