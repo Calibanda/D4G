@@ -57,19 +57,19 @@
                 <h1>Recherche</h1>
 
                 <form action="javascript:submitForm(retourCP)" method="get" class="">
-                    <div class="">
+                    <div class="cp">
                         <label for="CodePostal">Code Postal: </label>
                         <input type="text" name="CodePostal" id="CodePostal" placeholder="Entrez un code postal" pattern="[0-9]{5}" required>
                     </div>
-                    <div class="">
+                    <div class="deptcom">
                             <label for="CodePostal">Département: </label>
                             <select name="departement" id="Departement" onchange="ChooseCitie()">
-                                <option value="">--Please choose an option--</option>
+                                <option value="">--Choisissez une option--</option>
                             </select>
 
                             <label for="CodePostal">Commune: </label>
                             <select name="cities" id="list_citie" onchange="returnCP()">
-                                <option value="">--Please choose an option--</option>
+                                <option value="">--Choisissez une option--</option>
                             </select>
                     </div>
                     <div class="">
@@ -83,9 +83,10 @@
                   
 
                 </div>
+                <button onclick="javascript:createPdf()" id="pdf-button">DOWNLOAD PDF</button>
             </div>
 
-            <button onclick="javascript:createPdf()" id="pdf-button">DOWNLOAD PDF</button>
+            
             
             <div id="resume">
                 <h1>Résumé</h1>
