@@ -17,7 +17,8 @@ $('#query-btn').on('click', function (event) {
     const zipcode = "13420";
     $.ajax({
         url: '/api/search/' + zipcode,
-        method: 'SEARCH',
+        // method: 'SEARCH',
+        type: 'POST',
         data: { zipcode: zipcode }
     }).done(function (res) {
         if (res.err) {
