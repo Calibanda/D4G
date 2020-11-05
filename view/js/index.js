@@ -34,7 +34,9 @@ function returnCP(){
 function ChooseCitie() {
     var valueDepartement = document.getElementById("Departement").value;
     var y = document.getElementById("list_citie"); //on va écrire ici les nouvelles options
-
+    while (y.firstChild) {
+        y.removeChild(y.firstChild);
+    }
     fetch('http://vps-2377b176.vps.ovh.net:8888/js/departements_cities.json', myInit)
         .then(function (response) {
             return response.json()
