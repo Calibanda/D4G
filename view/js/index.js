@@ -1,41 +1,14 @@
-window.onload = function(){
-    var element = document.getElementById("rgpd");
-    var element1 = document.getElementById("cgu");
-    element.style.display = "none";
-    element1.style.display = "none";
 
-    var json;
-}
-function buttRGPD(){
-    var element = document.getElementById("rgpd");
-    var element1 = document.getElementById("cgu");
-    element1.style.display = "none";
-    if (element.style.display === "block"){
-        element.style.display = "none";
-    } else {
-        element.style.display = "block";
-       
-    }
-}
-function buttCGU(){
-    var element = document.getElementById("cgu");
-    var element1 = document.getElementById("rgpd");
-    element1.style.display = "none";
-    if (element.style.display === "block"){
-        element.style.display = "none";
-    } else {
-        element.style.display = "block";
-       
-    }
-}
-
-
+var json;
+var zipcode
+var oldSearch=[];
+var StoreData={};
 function init() {
     var myInit = {
         method: 'GET',
         mode: 'cors',
     }
-    var retourCP = "";
+    var retourCP = "0";
 
     fetch('http://vps-2377b176.vps.ovh.net:8888/js/departements_cities.json', myInit)
         .then(function (response) {
@@ -55,37 +28,13 @@ function init() {
 
 
 window.onload = function () {
+    retourCP ="";
     init();
-
-    var element = document.getElementById("rgpd");
-    var element1 = document.getElementById("cgu");
-    element.style.display = "none";
-    element1.style.display = "none";
-}
-
-function buttRGPD() {
-    var element = document.getElementById("rgpd");
-    var element1 = document.getElementById("cgu");
-    element1.style.display = "none";
-    if (element.style.display === "block") {
-        element.style.display = "none";
-    } else {
-        element.style.display = "block";
-    }
-}
-function buttCGU() {
-    var element = document.getElementById("cgu");
-    var element1 = document.getElementById("rgpd");
-    element1.style.display = "none";
-    if (element.style.display === "block") {
-        element.style.display = "none";
-    } else {
-        element.style.display = "block";
-
-    }
-}
+};
 
 function returnCP() {
+    document.getElementById("CodePostal").value="";
+    document.getElementById("CodePostal").disabled=true;
     value = document.getElementById("list_citie").value;
     retourCP = value.replace(/[^0-9]/g, "");
     console.log(retourCP);
@@ -95,6 +44,8 @@ function ChooseCitie() {
     if (!json) {
         return;
     }
+    document.getElementById("CodePostal").value="";
+    document.getElementById("CodePostal").disabled=true;
     var valueDepartement = document.getElementById("Departement").value;
     var y = document.getElementById("list_citie"); //on va écrire ici les nouvelles options
     while (y.firstChild) {
@@ -243,10 +194,8 @@ function generate_data(res) {
     });
     div_tableau.appendChild(tbl);
     tbl.setAttribute("border", "2");
-}
 
 
-function createPdf() {
 
     document.getElementById("pdf-button").disabled = true;
     
@@ -270,7 +219,7 @@ function createPdf() {
 
 
 
-    doc.save('hello-world.pdf');
+    doc.save('IFN.pdf');
 
     document.getElementById("pdf-button").disabled = false;
 }
