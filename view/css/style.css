@@ -102,6 +102,21 @@ div form #formulaire{
 
     background-color: rgb(255, 255, 255);
 }
+#communes{
+    border-collapse: collapse;
+    width: 80%;
+}
+#communes tr:nth-child(even){background-color: #f2f2f2;}
+
+#communes tr:hover {background-color: #ddd;}
+
+#communes th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #5d7fca;
+  color: white;
+}
 
 #resume{
 
