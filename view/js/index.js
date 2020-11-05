@@ -12,6 +12,7 @@ function Log() {
 }
 
 $('#query-btn').on('click', function (event) {
+    console.log("A")
     event.preventDefault();
     const zipcode = "13420";
     $.ajax({
