@@ -9,7 +9,7 @@ function submitForm(zipcode) {
         zipcode = $("#city option:selected").text();
     }*/
 
-    console.log("zipcode: " + zipcode)
+    // console.log("zipcode: " + zipcode)
 
     if (zipcode) {
 
@@ -22,7 +22,7 @@ function submitForm(zipcode) {
                 // console.log('error...ajax');
 
             } else {
-                console.log('res from ajax call is\n', res);
+                // console.log('res from ajax call is\n', res);
                 // window.location.reload();
 
                 //TODO: Generate results from the "res" variable

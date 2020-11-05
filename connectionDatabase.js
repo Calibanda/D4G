@@ -32,7 +32,7 @@ client.connect(function (err) {
 
     /// Back-end: Node.js + Mongoose (MongoDB)
     app.post('/api/search/:zipcode', (req, res) => {
-        console.log("A")
+        // console.log("A")
         var query = {
             "Code postal" : req.params.zipcode
             };
@@ -42,7 +42,7 @@ client.connect(function (err) {
             if (err) {
                 throw err;
             }
-            console.log(result);
+            // console.log(result);
             return res.send(200, result);
         })
     });
