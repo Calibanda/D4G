@@ -1,4 +1,32 @@
+window.onload = function(){
+    var element = document.getElementById("rgpd");
+    var element1 = document.getElementById("cgu");
+    element.style.display = "none";
+    element1.style.display = "none";
 
+}
+function buttRGPD(){
+    var element = document.getElementById("rgpd");
+    var element1 = document.getElementById("cgu");
+    element1.style.display = "none";
+    if (element.style.display === "block"){
+        element.style.display = "none";
+    } else {
+        element.style.display = "block";
+       
+    }
+}
+function buttCGU(){
+    var element = document.getElementById("cgu");
+    var element1 = document.getElementById("rgpd");
+    element1.style.display = "none";
+    if (element.style.display === "block"){
+        element.style.display = "none";
+    } else {
+        element.style.display = "block";
+       
+    }
+}
 
 var myInit = {
     method: 'GET',
@@ -42,7 +70,10 @@ function ChooseCitie() {
                         y.add(option);
                         console.log(1);
                         console.log(`${key}: ${data[i]["cities"][key]}`);
+
                     }
+                    
+
                 }
 
             }
