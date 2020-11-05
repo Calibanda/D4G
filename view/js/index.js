@@ -1,63 +1,63 @@
 
+var json;
 
-var myInit = {
-    method: 'GET',
-    mode: 'cors',
+function init() {
+    var myInit = {
+        method: 'GET',
+        mode: 'cors',
+    }
+    var retourCP = "";
+
+    fetch('http://vps-2377b176.vps.ovh.net:8888/js/departements_cities.json', myInit)
+        .then(function (response) {
+            return response.json()
+        }).then(function (data) {
+            var x = document.getElementById("Departement");
+            for (let i = 0; i < data.length; i++) {
+                var option = document.createElement("option");
+                option.setAttribute("name", data[i]["name"])
+                option.text = data[i]["name"];
+                x.add(option);
+            }
+            json = data;
+
+        });
 }
-var retourCP = "";
 
-var json = fetch('http://vps-2377b176.vps.ovh.net:8888/js/departements_cities.json', myInit)
-    .then(function (response) {
-        return response.json()
-    }).then(function (data) {
-        var x = document.getElementById("Departement");
-        for (let i = 0; i < data.length; i++) {
-            var option = document.createElement("option");
-            option.setAttribute("name", data[i]["name"])
-            option.text = data[i]["name"];
-            x.add(option);
-        }
-        return data;
 
-    })
+window.onload = function () {
+    init();
+};
 
-/*window.onload = function () {
-    generate_data();
-};*/
-
-function returnCP(){
+function returnCP() {
     value = document.getElementById("list_citie").value;
-    retourCP = value.replace(/[^0-9]/g,"");
+    retourCP = value.replace(/[^0-9]/g, "");
     console.log(retourCP);
 }
 
 function ChooseCitie() {
+    if (!json) {
+        return;
+    }
     var valueDepartement = document.getElementById("Departement").value;
     var y = document.getElementById("list_citie"); //on va écrire ici les nouvelles options
     while (y.firstChild) {
         y.removeChild(y.firstChild);
     }
-    fetch('http://vps-2377b176.vps.ovh.net:8888/js/departements_cities.json', myInit)
-        .then(function (response) {
-            return response.json()
-        }).then(function (data) {
-            for (let i = 0; i < data.length; i++) {
-                if (data[i]["name"] == valueDepartement) {
-                    for (key in data[i]["cities"]) {
-                        var option = document.createElement("option");
-                        option.text = `${key}: ${data[i]["cities"][key]}`;
-                        y.add(option);
-                        
-                    }
-                }
+    for (let i = 0; i < json.length; i++) {
+        if (json[i]["name"] == valueDepartement) {
+            for (key in json[i]["cities"]) {
+                var option = document.createElement("option");
+                option.text = `${key}: ${json[i]["cities"][key]}`;
+                y.add(option);
 
             }
-            console.log(option);            
-            return data;
+        }
 
-        })
-
+    }
+    console.log(option);
 }
+
 function generate_data(res) {
     var div_tableau = document.getElementById("communes");
 
