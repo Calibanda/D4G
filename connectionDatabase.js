@@ -54,10 +54,10 @@ client.connect(function (err) {
     });
 
     /// Back-end: Node.js + Mongoose (MongoDB)
-    app.get('/api/seach', (req, res) => {
+    app.get('/api/search/:zipcode', (req, res) => {
         var query = {
-            // "Code postal" : req.params.postal_code
-            "Code postal" : "13420"
+            "Code postal" : req.params.zipcode
+            // "Code postal" : "13420"
             };
 
         var coll_donnees_communes = client.db("accesInterfacesNumeriques").collection("donneesCommunes");
@@ -73,17 +73,15 @@ client.connect(function (err) {
                 res.end("Non trouvé");
             }
             console.log(result);
-        });
+        })
         // Todo.deleteOne({ _id: req.params.id })
 
-
-
-        // .then(() => {
-        //     res.json({ success: true });
-        // })
-        // .catch(err => {
-        //     res.status.json({ err: err });
-        // });
+        .then(() => {
+            res.json(result);
+        })
+        .catch(err => {
+            res.status.json({ err: err });
+        });
     });
 
 
