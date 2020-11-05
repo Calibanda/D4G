@@ -2,12 +2,11 @@ function submitForm(zipcode) {
     if (zipcode==""){
         zipcode = document.getElementById("CodePostal").value;
     }
-    alert(zipcode);
 
 var NewOrOld =1;
 
-    oldsearch.forEach(element => {
-        if(zipcode == element)
+storedata.forEach(element => {
+        if(zipcode == Object.keys(element)[0])
         {
             NewOrOld = 0;
         }
@@ -39,6 +38,14 @@ var NewOrOld =1;
         oldsearch = zipcode;
     }else{
         //generate data de la recherche data
+        storedata.forEach(element => {
+            if(zipcode == Object.keys(element)[0])
+            {
+                generate_data(element.zipcode)
+                break;
+            }
+        });
+        
 
     }
 
