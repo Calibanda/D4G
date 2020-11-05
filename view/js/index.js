@@ -239,14 +239,14 @@ function createPdf() {
     data = oldsearch[Object.keys(oldsearch)[0]]
 
     for (let i = 0; i < data.length; i++) {
-        doc.text(20, (30 + i * 70) % 300, "Ville de " + data[i]["Libcom"] + " " + data[i]["Nom Iris"]);
-        doc.text(20, (40 + i * 70) % 300, "Score global : " + data[i]["SCORE GLOBAL epci 1"]);
-        doc.text(20, (50 + i * 70) % 300, "Accès aux interfaces numérique : " + data[i]["ACCÈS AUX INTERFACES NUMERIQUES epci 1"]);
-        doc.text(20, (60 + i * 70) % 300, "Accès a l'information : " + data[i]["ACCES A L'INFORMATION epci 1"]);
-        doc.text(20, (70 + i * 70) % 300, "Compétences administrative : " + data[i]["COMPETENCES ADMINISTATIVES epci 1"]);
-        doc.text(20, (80 + i * 70) % 300, "Compétences numérique / scolaire : " + data[i]["COMPÉTENCES NUMÉRIQUES / SCOLAIRES epci 1"]);
+        doc.text(20, (30 + i * 70) % 290, "Ville de " + data[i]["Libcom"] + " " + data[i]["Nom Iris"]);
+        doc.text(20, (40 + i * 70) % 290, "Score global : " + data[i]["SCORE GLOBAL epci 1"]);
+        doc.text(20, (50 + i * 70) % 290, "Accès aux interfaces numérique : " + data[i]["ACCÈS AUX INTERFACES NUMERIQUES epci 1"]);
+        doc.text(20, (60 + i * 70) % 290, "Accès a l'information : " + data[i]["ACCES A L'INFORMATION epci 1"]);
+        doc.text(20, (70 + i * 70) % 290, "Compétences administrative : " + data[i]["COMPETENCES ADMINISTATIVES epci 1"]);
+        doc.text(20, (80 + i * 70) % 290, "Compétences numérique / scolaire : " + data[i]["COMPÉTENCES NUMÉRIQUES / SCOLAIRES epci 1"]);
 
-        if (i > 0 && (90 + i * 70) % 300 == 0) {
+        if (i > 0 && (80 + i * 70) % 290 == 0) {
             doc.addPage();
         }
     }
