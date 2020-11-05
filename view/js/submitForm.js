@@ -42,7 +42,6 @@ storedata.forEach(element => {
             if(zipcode == Object.keys(element)[0])
             {
                 generate_data(element.zipcode)
-                break;
             }
         });
         
