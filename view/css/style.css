@@ -104,6 +104,8 @@ div form #formulaire{
 }
 #communes{
     border-collapse: collapse;
+    text-align: center;
+    position: center;
     width: 80%;
 }
 #communes tr:nth-child(even){background-color: #f2f2f2;}

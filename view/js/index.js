@@ -131,7 +131,7 @@ function generate_data(res) {
     firstLine.appendChild(col1);
 
     var col6 = document.createElement("th");
-    var cellText = document.createTextNode("score global");
+    var cellText = document.createTextNode("Score global");
     col6.appendChild(cellText);
     firstLine.appendChild(col6);
 
@@ -151,7 +151,7 @@ function generate_data(res) {
     firstLine.appendChild(col4);
 
     var col5 = document.createElement("th");
-    var cellText = document.createTextNode("compétences numérique / scolaire");
+    var cellText = document.createTextNode("Compétences numérique / scolaire");
     col5.appendChild(cellText);
     firstLine.appendChild(col5);
 
@@ -241,7 +241,6 @@ function generate_data(res) {
         tbl.appendChild(Line);
     });
     div_tableau.appendChild(tbl);
-    tbl.setAttribute("border", "2");
 }
 
 
