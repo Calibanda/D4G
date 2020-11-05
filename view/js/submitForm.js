@@ -1,0 +1,33 @@
+function submitForm() {
+
+    var zipcode = false
+
+    if ($("#CodePostal").val()) {
+        zipcode = $("#CodePostal").val();
+    }
+    else if ($("#city option:selected").text()) {
+        zipcode = $("#city option:selected").text();
+    }
+
+    if (zipcode) {
+
+        $.ajax({
+            url: '/api/search/' + zipcode,
+            type: 'POST',
+            data: { zipcode: zipcode }
+        }).done(function (res) {
+            if (res.err) {
+                // console.log('error...ajax');
+
+            } else {
+                // console.log('res from ajax call is\n', res);
+                // window.location.reload();
+
+                //TODO: Generate results from the "res" variable
+
+            }
+        });
+    }
+
+    return false;
+}
