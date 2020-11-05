@@ -222,7 +222,7 @@ function generate_data(res) {
     });
     div_tableau.appendChild(tbl);
 
-    tbl.setAttribute("border", "2");
+    document.getElementById("pdf-button").style.display = "block";
 
 }
 
