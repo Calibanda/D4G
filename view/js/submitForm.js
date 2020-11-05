@@ -29,5 +29,5 @@ function submitForm(zipcode) {
         });
     }
 
-    return false;
+    //return false;
 }
