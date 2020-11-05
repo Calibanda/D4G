@@ -54,7 +54,7 @@ client.connect(function (err) {
     });
 
     /// Back-end: Node.js + Mongoose (MongoDB)
-    app.get('/api/seach/:postal_code', (req, res) => {
+    app.get('/api/seach', (req, res) => {
         var response = {
             // "Code postal" : req.params.postal_code
             "Code postal" : "13420"
@@ -67,8 +67,7 @@ client.connect(function (err) {
             }
 
             if (result) {
-                // res.end("/a");
-                console.log(result);
+                res.end(result);
             }
             else {
                 res.end("Non trouvé");
@@ -76,12 +75,15 @@ client.connect(function (err) {
             console.log(result);
         })
         // Todo.deleteOne({ _id: req.params.id })
-        .then(() => {
-            res.json({ success: true });
-        })
-        .catch(err => {
-            res.status.json({ err: err });
-        });
+
+
+
+        // .then(() => {
+        //     res.json({ success: true });
+        // })
+        // .catch(err => {
+        //     res.status.json({ err: err });
+        // });
     });
 
 
