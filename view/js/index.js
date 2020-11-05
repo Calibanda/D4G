@@ -4,7 +4,7 @@ var myInit = {
     method: 'GET',
     mode: 'cors',
 }
-var option = document.createElement("option");
+var retourCP = "";
 
 var json = fetch('http://vps-2377b176.vps.ovh.net:8888/js/departements_cities.json', myInit)
     .then(function (response) {
@@ -25,6 +25,12 @@ window.onload = function () {
     generate_data();
 };
 
+function returnCP(){
+    var newval;
+    value = document.getElementById("list_citie").value;
+    retourCP = value.replace(/[^0-9]{5}/g,"");
+    console.log(retourCP);
+}
 
 function ChooseCitie() {
     var valueDepartement = document.getElementById("Departement").value;
@@ -37,15 +43,15 @@ function ChooseCitie() {
             for (let i = 0; i < data.length; i++) {
                 if (data[i]["name"] == valueDepartement) {
                     for (key in data[i]["cities"]) {
-                        option.setAttribute("name", key)
+                        var option = document.createElement("option");
                         option.text = `${key}: ${data[i]["cities"][key]}`;
                         y.add(option);
-                        console.log(1);
-                        console.log(`${key}: ${data[i]["cities"][key]}`);
+                        
                     }
                 }
 
             }
+            console.log(option);            
             return data;
 
         })
@@ -53,6 +59,8 @@ function ChooseCitie() {
 }
 function generate_data() {
     var div_tableau = document.getElementById("communes");
+    h1 = document.createElement("h1");
+    div_tableau.appendChild(h1);
     var tbl = document.createElement("table");
     var firstLine = document.createElement("tr");
 
