@@ -32,6 +32,7 @@ client.connect(function (err) {
 
     /// Back-end: Node.js + Mongoose (MongoDB)
     app.search('/api/search/:zipcode', (req, res) => {
+        console.log("A")
         var query = {
             "Code postal" : req.params.zipcode
             };
