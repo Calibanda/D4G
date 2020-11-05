@@ -235,16 +235,19 @@ function createPdf(){
     var doc = new jsPDF();
 
     doc.setFontSize(22);
-    doc.text(20, 20, "Résultats l’indice de fragilité numérique");
+    doc.text(20, 20, "Résultats de l’indice de fragilité numérique");
 
     doc.setFontSize(16);
-    for (let i = 0; i < oldsearch.length; i++) {
-        doc.text(20, 30 + i * 70, "Ville de " + oldsearch[i]["Libcom"] + " " + oldsearch[i]["Nom Iris"]);
-        doc.text(20, 40 + i * 70, "Score global : " + oldsearch[i]["SCORE GLOBAL epci 1"]);
-        doc.text(20, 50 + i * 70, "Accès aux interfaces numérique : " + oldsearch[i]["ACCÈS AUX INTERFACES NUMERIQUES epci 1"]);
-        doc.text(20, 60 + i * 70, "Accès a l'information : " + oldsearch[i]["ACCES A L'INFORMATION epci 1"]);
-        doc.text(20, 70 + i * 70, "Compétences administrative : " + oldsearch[i]["COMPETENCES ADMINISTATIVES epci 1"]);
-        doc.text(20, 80 + i * 70, "Compétences numérique / scolaire : " + oldsearch[i]["COMPÉTENCES NUMÉRIQUES / SCOLAIRES epci 1"]);
+
+    data = oldsearch[Object.keys(oldsearch)[0]]
+
+    for (let i = 0; i < data.length; i++) {
+        doc.text(20, 30 + i * 70, "Ville de " + data[i]["Libcom"] + " " + data[i]["Nom Iris"]);
+        doc.text(20, 40 + i * 70, "Score global : " + data[i]["SCORE GLOBAL epci 1"]);
+        doc.text(20, 50 + i * 70, "Accès aux interfaces numérique : " + data[i]["ACCÈS AUX INTERFACES NUMERIQUES epci 1"]);
+        doc.text(20, 60 + i * 70, "Accès a l'information : " + data[i]["ACCES A L'INFORMATION epci 1"]);
+        doc.text(20, 70 + i * 70, "Compétences administrative : " + data[i]["COMPETENCES ADMINISTATIVES epci 1"]);
+        doc.text(20, 80 + i * 70, "Compétences numérique / scolaire : " + data[i]["COMPÉTENCES NUMÉRIQUES / SCOLAIRES epci 1"]);
     }
 
     doc.save('IFN.pdf');
