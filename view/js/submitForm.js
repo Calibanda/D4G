@@ -29,7 +29,9 @@ var NewOrOld =1;
 
                     //TODO: Generate results from the "res" variable
                     console.log(res);
-                    StoreData.zipcode = res;
+                    var obj = {zipcode: res};
+                    storedata.push(obj);
+                    console.log(storedata[0].zipcode);
                     generate_data(res);
 
                 }
@@ -37,6 +39,7 @@ var NewOrOld =1;
         oldSearch = zipcode;
     }else{
         //generate data de la recherche data
+
     }
 
 

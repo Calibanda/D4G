@@ -1,8 +1,9 @@
 
 var json;
 var zipcode
-var oldSearch=[];
-var StoreData={};
+var oldsearch=[];
+var storedata=[];
+
 function init() {
     var myInit = {
         method: 'GET',
