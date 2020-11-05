@@ -21,9 +21,34 @@ var json = fetch('http://vps-2377b176.vps.ovh.net:8888/js/departements_cities.js
 
     })
 
-/*window.onload = function () {
-    generate_data();
-};*/
+window.onload = function () {
+    var element = document.getElementById("rgpd");
+    var element1 = document.getElementById("cgu");
+    element.style.display = "none";
+    element1.style.display = "none";
+}
+
+function buttRGPD(){
+    var element = document.getElementById("rgpd");
+    var element1 = document.getElementById("cgu");
+    element1.style.display = "none";
+    if (element.style.display === "block"){
+        element.style.display = "none";
+    } else {
+        element.style.display = "block";
+    }
+}
+function buttCGU(){
+    var element = document.getElementById("cgu");
+    var element1 = document.getElementById("rgpd");
+    element1.style.display = "none";
+    if (element.style.display === "block"){
+        element.style.display = "none";
+    } else {
+        element.style.display = "block";
+       
+    }
+}
 
 function returnCP(){
     value = document.getElementById("list_citie").value;
@@ -187,10 +212,17 @@ function generate_data(res) {
     });
     div_tableau.appendChild(tbl);
     tbl.setAttribute("border", "2");
+}
 
 
-
-
+createPdf();
+async function createPdf() {
+    const pdfDoc = await PDFLib.PDFDocument.create();
+    const page = pdfDoc.addPage([350, 400]);
+    page.moveTo(110, 200);
+    page.drawText('Hello World!');
+    const pdfDataUri = await pdfDoc.saveAsBase64({ dataUri: true });
+    document.getElementById('pdf').src = pdfDataUri;
 }
 
 

@@ -51,7 +51,14 @@ nav #img_banner{
 
 
 /* ################ MAIN #################*/
-.main{
+
+#presentation, #recherche, #donnees, #resume, #rgpd, #cgu{
+    width: 80%;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 30px;
+    padding-bottom: 60px;
+    text-align: justify;
 
 }
 h1{
@@ -59,22 +66,10 @@ h1{
 }
 
 #presentation{
-    width: 80%;
-    padding-left: 10%;
-    padding-right: 10%;
-    padding-top: 30px;
-    padding-bottom: 20px;
-    text-align: justify;
+
     background-color: rgb(255, 255, 255);
 }
-#recherche{
-    width: 80%;
-    padding-left: 10%;
-    padding-right: 10%;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    text-align: justify;
-}
+
 #formulaire
 {
     display: block;
@@ -104,27 +99,18 @@ div form #formulaire{
 }
 
 #donnees{
-    width: 80%;
-    padding-left: 10%;
-    padding-right: 10%;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    text-align: justify;
+
     background-color: rgb(255, 255, 255);
 }
 
 #resume{
-    width: 80%;
-    padding-left: 10%;
-    padding-right: 10%;
-    padding-top: 20px;
-    padding-bottom: 50px;
-    text-align: justify;
 
+padding-bottom: 50px;
 }
 table{
     text-align: center;
 }
+
 /*#################### FOOTER #########################*/
 
 footer{
@@ -149,14 +135,23 @@ footer p{
 
 }
 
-footer a{
+
+.buttBas{
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
     color: white;
-    text-decoration: none;
+    font-size: medium;
+}
+.buttBas{
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    color: white;
+    font-size: medium; 
 }
 
-footer a:hover{
-    color: rgb(199, 199, 199);
-    text-decoration: none;
+.buttBas:hover{
+    color: rgb(119, 119, 119);
+    cursor: pointer;
 }
 
 /* Fin Footer */
