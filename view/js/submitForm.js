@@ -28,6 +28,8 @@ var NewOrOld =1;
                     // window.location.reload();
 
                     //TODO: Generate results from the "res" variable
+                    console.log(res);
+                    StoreData.zipcode = res;
                     generate_data(res);
 
                 }

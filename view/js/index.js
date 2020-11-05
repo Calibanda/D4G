@@ -1,37 +1,8 @@
-window.onload = function(){
-    var element = document.getElementById("rgpd");
-    var element1 = document.getElementById("cgu");
-    element.style.display = "none";
-    element1.style.display = "none";
-
-    var json;
-}
-function buttRGPD(){
-    var element = document.getElementById("rgpd");
-    var element1 = document.getElementById("cgu");
-    element1.style.display = "none";
-    if (element.style.display === "block"){
-        element.style.display = "none";
-    } else {
-        element.style.display = "block";
-       
-    }
-}
-function buttCGU(){
-    var element = document.getElementById("cgu");
-    var element1 = document.getElementById("rgpd");
-    element1.style.display = "none";
-    if (element.style.display === "block"){
-        element.style.display = "none";
-    } else {
-        element.style.display = "block";
-       
-    }
-}
 
 var json;
 var zipcode
 var oldSearch=[];
+var StoreData={};
 function init() {
     var myInit = {
         method: 'GET',
@@ -59,34 +30,7 @@ function init() {
 window.onload = function () {
     retourCP ="";
     init();
-
-    var element = document.getElementById("rgpd");
-    var element1 = document.getElementById("cgu");
-    element.style.display = "none";
-    element1.style.display = "none";
-}
-
-function buttRGPD() {
-    var element = document.getElementById("rgpd");
-    var element1 = document.getElementById("cgu");
-    element1.style.display = "none";
-    if (element.style.display === "block") {
-        element.style.display = "none";
-    } else {
-        element.style.display = "block";
-    }
-}
-function buttCGU() {
-    var element = document.getElementById("cgu");
-    var element1 = document.getElementById("rgpd");
-    element1.style.display = "none";
-    if (element.style.display === "block") {
-        element.style.display = "none";
-    } else {
-        element.style.display = "block";
-
-    }
-}
+};
 
 function returnCP() {
     document.getElementById("CodePostal").value="";
@@ -250,16 +194,10 @@ function generate_data(res) {
     });
     div_tableau.appendChild(tbl);
     tbl.setAttribute("border", "2");
-}
 
 
-function createPdf() {
 
-    document.getElementById("pdf-button").disabled = true;
-    
-    var doc = new jsPDF();
-    doc.text(10, 10, 'Hello world!');
-    doc.save('hello-world.pdf');
+
 }
 
 
