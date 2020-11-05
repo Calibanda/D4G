@@ -57,7 +57,7 @@ client.connect(function (err) {
     app.get('/api/seach', (req, res) => {
         var query = {
             // "Code postal" : req.params.postal_code
-            "Code postal" : 13420
+            "Code postal" : "13420"
             };
 
         var coll_donnees_communes = client.db("accesInterfacesNumeriques").collection("donneesCommunes");
