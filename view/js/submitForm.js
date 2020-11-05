@@ -13,7 +13,6 @@ storedata.forEach(element => {
     });
 
     if (NewOrOld==1) {
-        oldsearch.push(zipcode);
             $.ajax({
                 url: '/api/search/' + zipcode,
                 type: 'POST',
@@ -31,16 +30,17 @@ storedata.forEach(element => {
                     var obj = {zipcode: res};
                     storedata.push(obj);
                     console.log(storedata[0].zipcode);
+                    oldsearch=obj;
                     generate_data(res);
 
                 }
             });
-        oldsearch = zipcode;
     }else{
         //generate data de la recherche data
         storedata.forEach(element => {
             if(zipcode == Object.keys(element)[0])
             {
+                oldsearch=element;
                 generate_data(element.zipcode)
             }
         });

@@ -1,7 +1,7 @@
 
 var json;
 var zipcode
-var oldsearch=[];
+var oldsearch={};
 var storedata=[];
 
 function init() {
