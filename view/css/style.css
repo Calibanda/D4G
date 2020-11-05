@@ -123,7 +123,6 @@ input, select {
 #communes th {
   padding-top: 12px;
   padding-bottom: 12px;
-  text-align: left;
   background-color: #5d7fca;
   color: white;
 }
@@ -138,7 +137,7 @@ table{
     text-align: center;
 }
 td, th{
-    margin: 5%;
+    padding: 10px;
 }
 
 /*#################### FOOTER #########################*/
