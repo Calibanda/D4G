@@ -109,22 +109,22 @@ function generate_data(res) {
     firstLine.appendChild(col6);
 
     var col2 = document.createElement("th");
-    var cellText = document.createTextNode("Accès aux interfaces numérique");
+    var cellText = document.createTextNode("Accès aux interfaces numériques");
     col2.appendChild(cellText);
     firstLine.appendChild(col2);
 
     var col3 = document.createElement("th");
-    var cellText = document.createTextNode("Accès a l'information");
+    var cellText = document.createTextNode("Accès à l'information");
     col3.appendChild(cellText);
     firstLine.appendChild(col3);
 
     var col4 = document.createElement("th");
-    var cellText = document.createTextNode("Compétences administrative");
+    var cellText = document.createTextNode("Compétences administratives");
     col4.appendChild(cellText);
     firstLine.appendChild(col4);
 
     var col5 = document.createElement("th");
-    var cellText = document.createTextNode("Compétences numérique / scolaire");
+    var cellText = document.createTextNode("Compétences numériques / scolaires");
     col5.appendChild(cellText);
     firstLine.appendChild(col5);
 
@@ -238,10 +238,10 @@ function createPdf() {
         var name_city = data[i]["Libcom"] != data[i]["Nom Iris"] ? data[i]["Libcom"] + " " + data[i]["Nom Iris"] : data[i]["Libcom"]
         doc.text(20, 30 + (i % 4) * 70, "Ville de " + name_city);
         doc.text(20, 40 + (i % 4) * 70, "Score global : " + data[i]["SCORE GLOBAL epci 1"]);
-        doc.text(20, 50 + (i % 4) * 70, "Accès aux interfaces numérique : " + data[i]["ACCÈS AUX INTERFACES NUMERIQUES epci 1"]);
-        doc.text(20, 60 + (i % 4) * 70, "Accès a l'information : " + data[i]["ACCES A L'INFORMATION epci 1"]);
-        doc.text(20, 70 + (i % 4) * 70, "Compétences administrative : " + data[i]["COMPETENCES ADMINISTATIVES epci 1"]);
-        doc.text(20, 80 + (i % 4) * 70, "Compétences numérique / scolaire : " + data[i]["COMPÉTENCES NUMÉRIQUES / SCOLAIRES epci 1"]);
+        doc.text(20, 50 + (i % 4) * 70, "Accès aux interfaces numériques : " + data[i]["ACCÈS AUX INTERFACES NUMERIQUES epci 1"]);
+        doc.text(20, 60 + (i % 4) * 70, "Accès à l'information : " + data[i]["ACCES A L'INFORMATION epci 1"]);
+        doc.text(20, 70 + (i % 4) * 70, "Compétences administratives : " + data[i]["COMPETENCES ADMINISTATIVES epci 1"]);
+        doc.text(20, 80 + (i % 4) * 70, "Compétences numériques / scolaires : " + data[i]["COMPÉTENCES NUMÉRIQUES / SCOLAIRES epci 1"]);
 
         if (i > 0 && (i + 1) % 4 == 0) {
             doc.addPage();
