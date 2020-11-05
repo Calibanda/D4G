@@ -1,13 +1,13 @@
-function submitForm() {
+function submitForm(zipcode) {
 
-    var zipcode = false
+    /*var zipcode = false
 
     if ($("#CodePostal").val()) {
         zipcode = $("#CodePostal").val();
     }
     else if ($("#city option:selected").text()) {
         zipcode = $("#city option:selected").text();
-    }
+    }*/
 
     if (zipcode) {
 
@@ -20,7 +20,7 @@ function submitForm() {
                 // console.log('error...ajax');
 
             } else {
-                // console.log('res from ajax call is\n', res);
+                console.log('res from ajax call is\n', res);
                 // window.location.reload();
 
                 //TODO: Generate results from the "res" variable
