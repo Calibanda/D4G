@@ -11,7 +11,7 @@ function init() {
     }
     var retourCP = "0";
 
-    fetch('http://vps-2377b176.vps.ovh.net:8888/js/departements_cities.json', myInit)
+    fetch('js/departements_cities.json', myInit)
         .then(function (response) {
             return response.json()
         }).then(function (data) {
