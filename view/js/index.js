@@ -26,9 +26,8 @@ window.onload = function () {
 };
 
 function returnCP(){
-    var newval;
     value = document.getElementById("list_citie").value;
-    retourCP = value.replace(/[^0-9]{5}/g,"");
+    retourCP = value.replace(/[^0-9]/g,"");
     console.log(retourCP);
 }
 
