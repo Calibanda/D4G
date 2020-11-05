@@ -62,10 +62,10 @@ app.get('/', function(req, res) {
     });
 
 //This piece of code creates the server  
-//and listens to the request at port 443
+//and listens to the request at port 80
 //we are also generating a message once the 
 //server is created
-var server = app.listen(443, function(){
+var server = app.listen(80, function(){
     var host = server.address().address;
     var port = server.address().port;
     console.log("Example app listening at http://%s:%s", host, port);
