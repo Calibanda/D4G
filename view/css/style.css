@@ -53,7 +53,7 @@ nav #img_banner{
 
 /* ################ MAIN #################*/
 
-#presentation, #formulaire, #donnees, #resume, #rgpd, #cgu{
+#presentation,  #donnees, #resume, #rgpd, #cgu{
     box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.3); 
     width: 80%;
     padding-left: 10%;
