@@ -31,7 +31,34 @@ function init() {
 window.onload = function () {
     retourCP ="";
     init();
-};
+    var element = document.getElementById("rgpd");
+    var element1 = document.getElementById("cgu");
+    element.style.display = "none";
+    element1.style.display = "none";
+}
+
+function buttRGPD(){
+    var element = document.getElementById("rgpd");
+    var element1 = document.getElementById("cgu");
+    element1.style.display = "none";
+    if (element.style.display === "block"){
+        element.style.display = "none";
+    } else {
+        element.style.display = "block";
+    }
+}
+
+function buttCGU(){
+    var element = document.getElementById("cgu");
+    var element1 = document.getElementById("rgpd");
+    element1.style.display = "none";
+    if (element.style.display === "block"){
+        element.style.display = "none";
+    } else {
+        element.style.display = "block";
+       
+    }
+}
 
 function returnCP() {
     document.getElementById("CodePostal").value="";
