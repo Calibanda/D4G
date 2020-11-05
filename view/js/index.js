@@ -5,7 +5,7 @@ var myInit ={
      mode: 'cors',
 }
 
-fetch('http://vps-2377b176.vps.ovh.net:8888/js/departements_cities.json',myInit)
+var json=fetch('http://vps-2377b176.vps.ovh.net:8888/js/departements_cities.json',myInit)
     .then(function (response) {
         return response.json()
     }).then(function (data) {
@@ -13,16 +13,30 @@ fetch('http://vps-2377b176.vps.ovh.net:8888/js/departements_cities.json',myInit)
         for (let i=0; i < data.length ; i++ )
         {
             var option = document.createElement("option");
+            option.setAttribute("name",data[i]["name"])
             option.text = data[i]["name"];
             x.add(option);
         }
+        return data;
         
     })
 
 window.onload = function(){
    generate_data();
 };
+function functionDepartement(){
+    var x = document.getElementById("Departement").value;
+    var y = document.getElementById("list_citie"); //on va écrire ici les nouvelles options
+    
+    for (let i=0; i < data.x.length ; i++ )
+    {
+        var option = document.createElement("option");
+        //option.setAttribute("name",data[i]["name"])
+        option.text = data[i]["name"];
+        x.add(option);
+    }
 
+}
 function generate_data(){
     var div_tableau = document.getElementById("communes");
     var tbl = document.createElement("table");

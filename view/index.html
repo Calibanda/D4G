@@ -61,7 +61,12 @@
                     </div>
                     <div class="">
                             <label for="CodePostal">Département: </label>
-                            <select name="departement" id="Departement">
+                            <select name="departement" id="Departement" onchange="functionDepartement()">
+                                <option value="">--Please choose an option--</option>
+                            </select>
+
+                            <label for="CodePostal">Commune: </label>
+                            <select name="cities" id="list_citie" onchange="functionDepartement()">
                                 <option value="">--Please choose an option--</option>
                             </select>
                     </div>
