@@ -9,7 +9,7 @@ function submitForm(zipcode) {
         zipcode = $("#city option:selected").text();
     }*/
 
-    console.log("A")
+    console.log("zipcode: " + zipcode)
 
     if (zipcode) {
 
